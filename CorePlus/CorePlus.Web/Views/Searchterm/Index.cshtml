@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="../../Js/component.js"></script>
+<script type="text/javascript" src="../../Js/Visit/visit.js"></script>
+<script type="text/javascript" src="../../Js/Visit/ResourceAnalyse/Searchterm.js"></script>
+<div id="content">
+    <div id="tab1" style="display: block;">
+        <div class="rightContainer">
+            <div class="box">
+                <div class="right_top_title">
+                    <span>受访分析-搜索词<span id="timePeriod"></span></span> <a title="提供访客搜索到您网站时所使用的搜索词及每个词的引入流量质量。可帮助您了解访客的兴趣关注点，网站与访客兴趣点的匹配度，有助于优化SEO方案及SEM提词方案。"
+                        class="help rightHeaderTip">&nbsp;</a>
+                </div>
+                <div class="time_tool">
+                    <div class="time_tool sticky" style="width: 1031px;">
+                        <div class="day">
+                            <ul id="time_tool_quick_key">
+                                <li id="time_tool_today"><a info="0">今日</a></li>
+                                <li id="time_tool_yesterday"><a info="-1">昨日</a></li>
+                                <li id="time_tool_7days"><a info="-7">最近7日</a></li>
+                                <li id="time_tool_ago30days"><a info="-30">最近30日</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary">
+                    <table id="cont_domain_summary_table" style="display: table;">
+                        <tbody>
+                            <tr>
+                                <td class="sum_title">
+                                    来访次数<a title="由该来源进入网站的访问（会话）次数。"
+                                        class="sum_help">&nbsp;</a>
+                                </td>
+                                <td class="sum_title">
+                                    独立访客(UV)<a title="1天（00:00-24:00）之内，访问网站的不重复用户数（以浏览器cookie为依据），一天内同一访客多次访问网站只被计算1次。"
+                                        class="sum_help">&nbsp;</a>
+                                </td>
+                                <td class="sum_title">
+                                    IP<a title="1天（00:00-24:00）之内，访问网站的不重复IP数。一天内相同IP地址多次访问网站只被计算1次。" class="sum_help">&nbsp;</a>
+                                </td>
+                                <td class="sum_title">
+                                    新独立访客<a title="由该来源首次进入网站的不重复访客数。。" class="sum_help">&nbsp;</a>
+                                </td>
+                                <td class="sum_title">
+                                    浏览次数(PV)<a title="即通常说的PV（PageView）值，用户每打开1个网站页面，记录1个PV。用户多次打开同一页面PV累计多次。" class="sum_help">&nbsp;</a>
+                                </td>
+                                @* <td class="sum_title no_border">
+                                    跳出率<a title="仅浏览了一个页面就离开网站的访问次数占比。跳出率越高则该来源访客对网站的兴趣越低。" class="sum_help">&nbsp;</a>
+                                </td>*@
+                            </tr>
+                            <tr>
+                                <td class="sum_data" id="banner_vc">
+                                    0
+                                </td>
+                                <td class="sum_data" id="banner_uv">
+                                    0
+                                </td>
+                                <td class="sum_data" id="banner_ip">
+                                    0
+                                </td>
+                                <td class="sum_data" id="banner_newuv">
+                                    0
+                                </td>
+                                <td class="sum_data" id="banner_pv">
+                                    0
+                                </td>
+                                @* <td class="sum_data no_border" id="banner_br">
+                                    跳出率
+                                </td>*@
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="report_data">
+                    <!--  受访页面表格 -->
+                    <div class="report_title">
+                        <ul id="tabs_report">
+                            <li>查看：</li>
+                            <li class="item selected" tag="1">关键字</li>
+                            @*<li class="item" tag="2">站内入口&nbsp;<a title="站内入口指访客进入您网站时浏览的第一个页面。" href="javascript:void(0);"><img
+                                alt="" src="../../Content/images/wh.gif" border="0" width="12" height="12" /></a></li>*@
+                            @*<li class="item" tag="3">站内出口&nbsp;<a title="站内出口为您提供访客离开您网站的页面。" href="javascript:void(0);"><img
+                        alt="" src="../../Content/images/wh.gif" border="0" width="12" height="12"></a></li>*@
+                        </ul>
+                    </div>
+                    <div class="choice">
+                        <div class="choice-right">
+                            <div class="fleft">
+                                <input id="txbSearch" type="text" style="color: #ccc; width: 250px;" class="util_search_input1 lightGray" /></div>
+                            <div class="button fleft">
+                                <a class="filter_button1" id="btnSearch">搜索</a></div>
+                        </div>
+                    </div>
+                    <!-- 受访页面内容 -->
+                    <div class="tab-content" id="zhannei_shoufang_content" style="display: block;">
+                        <table id="dg" border="0">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="misc">
+</div>

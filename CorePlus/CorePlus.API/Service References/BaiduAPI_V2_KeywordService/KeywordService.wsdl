@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/sms/v2" xmlns:common="http://api.baidu.com/sem/common/v2" name="KeywordService" targetNamespace="https://api.baidu.com/sem/sms/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/sms/v2">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/sms/v2/KeywordService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:complexType name="KeywordType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="keywordId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="keyword" type="xsd:string" />
+          <xsd:element minOccurs="0" name="price" type="xsd:double" />
+          <xsd:element minOccurs="0" name="destinationUrl" type="xsd:string" />
+          <xsd:element minOccurs="0" name="matchType" type="xsd:int" />
+          <xsd:element minOccurs="0" name="pause" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="status" type="xsd:int" />
+          <xsd:element minOccurs="0" ref="common:opt" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GroupKeywordId">
+        <xsd:sequence>
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordIds" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GroupKeyword">
+        <xsd:sequence>
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordTypes" type="tns:KeywordType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getKeywordIdByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordIdByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupKeywordIds" type="tns:GroupKeywordId" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupKeywords" type="tns:GroupKeyword" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordByKeywordIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="keywordIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordByKeywordIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordTypes" type="tns:KeywordType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addKeywordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="keywordTypes" type="tns:KeywordType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addKeywordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordTypes" type="tns:KeywordType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateKeywordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="keywordTypes" type="tns:KeywordType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateKeywordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordTypes" type="tns:KeywordType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteKeywordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="keywordIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteKeywordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="activateKeywordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="keywordIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="activateKeywordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordTypes" type="tns:KeywordType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="StatusType">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element name="campaignId" type="xsd:long" />
+          <xsd:element name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getKeywordStatusRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="ids" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordStatus" type="tns:StatusType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordStatusZipRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="ids" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordStatusZipResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="keywordStatus" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="QualityType">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element name="campaignId" type="xsd:long" />
+          <xsd:element name="quality" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getKeywordQualityRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="ids" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordQualityResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="qualities" type="tns:QualityType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordQualityZipRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="ids" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKeywordQualityZipResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="qualities" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getKeywordQualityRequest">
+    <wsdl:part name="parameters" element="tns:getKeywordQualityRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateKeywordRequest">
+    <wsdl:part name="parameters" element="tns:updateKeywordRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateKeywordResponse">
+    <wsdl:part name="parameters" element="tns:updateKeywordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordStatusZipRequest">
+    <wsdl:part name="parameters" element="tns:getKeywordStatusZipRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordStatusRequest">
+    <wsdl:part name="parameters" element="tns:getKeywordStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="activateKeywordResponse">
+    <wsdl:part name="parameters" element="tns:activateKeywordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordIdByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:getKeywordIdByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="deleteKeywordRequest">
+    <wsdl:part name="parameters" element="tns:deleteKeywordRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordQualityResponse">
+    <wsdl:part name="parameters" element="tns:getKeywordQualityResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordByKeywordIdRequest">
+    <wsdl:part name="parameters" element="tns:getKeywordByKeywordIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="addKeywordResponse">
+    <wsdl:part name="parameters" element="tns:addKeywordResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteKeywordResponse">
+    <wsdl:part name="parameters" element="tns:deleteKeywordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:getKeywordByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordStatusResponse">
+    <wsdl:part name="parameters" element="tns:getKeywordStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordByKeywordIdResponse">
+    <wsdl:part name="parameters" element="tns:getKeywordByKeywordIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordIdByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:getKeywordIdByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordQualityZipResponse">
+    <wsdl:part name="parameters" element="tns:getKeywordQualityZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="addKeywordRequest">
+    <wsdl:part name="parameters" element="tns:addKeywordRequest" />
+  </wsdl:message>
+  <wsdl:message name="activateKeywordRequest">
+    <wsdl:part name="parameters" element="tns:activateKeywordRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordQualityZipRequest">
+    <wsdl:part name="parameters" element="tns:getKeywordQualityZipRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordStatusZipResponse">
+    <wsdl:part name="parameters" element="tns:getKeywordStatusZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getKeywordByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:getKeywordByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:portType name="KeywordService">
+    <wsdl:operation name="getKeywordIdByAdgroupId">
+      <wsdl:input message="tns:getKeywordIdByAdgroupIdRequest" />
+      <wsdl:output message="tns:getKeywordIdByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordByAdgroupId">
+      <wsdl:input message="tns:getKeywordByAdgroupIdRequest" />
+      <wsdl:output message="tns:getKeywordByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordByKeywordId">
+      <wsdl:input message="tns:getKeywordByKeywordIdRequest" />
+      <wsdl:output message="tns:getKeywordByKeywordIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addKeyword">
+      <wsdl:input message="tns:addKeywordRequest" />
+      <wsdl:output message="tns:addKeywordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateKeyword">
+      <wsdl:input message="tns:updateKeywordRequest" />
+      <wsdl:output message="tns:updateKeywordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteKeyword">
+      <wsdl:input message="tns:deleteKeywordRequest" />
+      <wsdl:output message="tns:deleteKeywordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="activateKeyword">
+      <wsdl:input message="tns:activateKeywordRequest" />
+      <wsdl:output message="tns:activateKeywordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordStatus">
+      <wsdl:input message="tns:getKeywordStatusRequest" />
+      <wsdl:output message="tns:getKeywordStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordStatusZip">
+      <wsdl:input message="tns:getKeywordStatusZipRequest" />
+      <wsdl:output message="tns:getKeywordStatusZipResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordQuality">
+      <wsdl:input message="tns:getKeywordQualityRequest" />
+      <wsdl:output message="tns:getKeywordQualityResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordQualityZip">
+      <wsdl:input message="tns:getKeywordQualityZipRequest" />
+      <wsdl:output message="tns:getKeywordQualityZipResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KeywordServiceSOAP" type="tns:KeywordService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getKeywordIdByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/getKeywordIdByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/getKeywordByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordByKeywordId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/getKeywordByKeywordId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addKeyword">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/addKeyword" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateKeyword">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/updateKeyword" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteKeyword">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/deleteKeyword" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activateKeyword">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/activateKeyword" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordStatus">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/getKeywordStatus" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordStatusZip">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/getKeywordStatusZip" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordQuality">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/getKeywordQuality" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKeywordQualityZip">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KeywordService/getKeywordQualityZip" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KeywordService">
+    <wsdl:port name="KeywordService" binding="tns:KeywordServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/sms/v2/KeywordService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,9 @@
+﻿@model IEnumerable<CorePlus.Entity.MenuInfoEntity>
+<ul style="display: none">
+    @foreach (var menu in Model)
+    {
+        <li>
+            @Html.ActionLink(menu.MenuName, menu.Action, menu.Controller, null, new { target = "ifmMain" })
+        </li>
+    }
+</ul>

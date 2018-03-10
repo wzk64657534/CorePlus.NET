@@ -1,0 +1,71 @@
+﻿@model CorePlus.WeiXin.Entity.WxReplyTextEntity
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function afterAdd(data) {
+        //关闭对话框，刷新表格
+        if (data == "ok") {
+            window.parent.window.afterAdd();
+        } else {
+            $.messager.alert("错误信息", data);
+        }
+    }
+
+    function submitFrm() {
+        $("form").submit();
+    }
+</script>
+@using (Ajax.BeginForm("Add", new AjaxOptions() { OnSuccess = "afterAdd" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.Hidden("UserName", User.Identity.Name)
+    <br />
+    <div id="divFrm">
+        <table width="95%" border="0" cellpadding="5" cellspacing="5" style="margin-left: 5px;">
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Keyword)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Keyword, new Dictionary<string, object>{　　　　　　　　　　　　　　　　
+                    {"style","width:300px; height:20px;" }})
+                    <span style="color: red;">*</span>
+                    @Html.ValidationMessageFor(model => model.Keyword)
+                    <div>
+                        多个关键词请用空格隔开，例如：美丽 漂亮 好看</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.MatchType)
+                </td>
+                <td>
+                    @{var list = CorePlus.Web.EntityWebHelper.GetMatchTypeList();}
+                    @Html.DropDownListFor(model => model.MatchType, list,
+                        new Dictionary<string, object> { { "style", "width:300px; height:30px;" } })
+                    <span style="color: red;">*</span>
+                    <div>
+                        完全匹配，用户输入的和此关键词一样才会触发<br />
+                        包含匹配，只要用户输入的文字包含本关键词就触发
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Content)
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.Content,
+                        new Dictionary<string, object> { { "style", "width:300px; height:60px;" } })
+                    <span style="color: red;">*</span>
+                    @Html.ValidationMessageFor(model => model.Content)
+                    <div>
+                        必填，用户添加您的时候自动回复语；超链接添加形式，如：&lt;a href="http://www.baidu.com"&gt;百度&lt;/a&gt;
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+}

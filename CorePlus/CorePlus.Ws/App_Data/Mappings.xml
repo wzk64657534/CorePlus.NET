@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+    <object id="ServantInfoMapping" type="Core.CoreMapping&lt;CorePlus.Entity.ServantInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="WxAccountMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxAccountEntity&gt; ,Core" singleton="true"/>
+</objects>

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<CorePlus.Entity.ParamDtsInfoEntity>
+@{
+    ViewBag.Title = "参数明细";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<script type="text/javascript">
+    function Update(t, w, h, id, seq) {
+        var url = '/Param/ParamDtsUpdate/' + id + '/?seq=' + seq;
+        $('#ifrmDts').attr('src', url);
+        $("#divUpdate").show();
+        $("#divUpdate").dialog({
+            width: w,
+            height: h,
+            modal: true,
+            title: t,
+            collapsible: true,
+            minimizable: true,
+            maximizable: true,
+            resizable: true,
+            buttons: [{
+                id: 'btnCancel',
+                text: '取消',
+                iconCls: 'icon-cancel',
+                handler: function () {
+                    $("#divUpdate").dialog("close");
+                    $("#divUpdate").hide();
+                    window.location.href = window.location.href;
+                }
+            }]
+        });
+    }
+</script>
+<h2>
+    参数明细-列表</h2>
+@{CorePlus.Entity.ParamInfoEntity entity = (CorePlus.Entity.ParamInfoEntity)ViewBag.ParamInfoEntity;}
+<p>
+    参数名称：@Html.DisplayFor(modelItem => entity.ParamName) @Html.ActionLink("返回", "Index")
+</p>
+<fieldset>
+    <legend>明细列表</legend>
+    <p>
+        <a href="javascript:void(0);" onclick="javascript:Update('新增',400,500,@(entity.ID),0);" >
+            新增</a>
+    </p>
+    <table>
+        <tr>
+            <th>
+                序号
+            </th>
+            <th>
+                名称
+            </th>
+            <th>
+                值
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SEQ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParamDtsName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParamValue)
+                </td>
+                <td>
+                    @Html.ActionLink("删除", "DeleteDts", new { id = item.ID, seq = item.SEQ }, new { onclick = "return confirm('确认删除吗？')" })
+                </td>
+            </tr>
+        }
+    </table>
+</fieldset>
+<div id="divUpdate" style="display: none;">
+    <iframe id="ifrmDts" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"
+        width="100%" height="500"></iframe>
+</div>

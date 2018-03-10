@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:tns="http://api.baidu.com/sem/common/v2" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://api.baidu.com/sem/common/v2" jaxb:version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:appinfo>
+      <jaxb:globalBindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+        <jaxb:javaType name="java.util.Date" parseMethod="org.apache.cxf.tools.common.DataTypeAdapter.parseDateTime" printMethod="org.apache.cxf.tools.common.DataTypeAdapter.printDateTime" xmlType="xsd:dateTime" />
+      </jaxb:globalBindings>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:element name="opt" type="tns:OptType">
+    <xsd:unique name="optUnique">
+      <xsd:selector xpath=".//tns:optString|.//tns:optInt|.//tns:optLong|.//tns:optFloat|.//tns:optDouble" />
+      <xsd:field xpath="tns:key" />
+    </xsd:unique>
+  </xsd:element>
+  <xsd:complexType name="OptType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="optString" type="tns:StringMapItemType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="optInt" type="tns:IntMapItemType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="optLong" type="tns:LongMapItemType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="optFloat" type="tns:FloatMapItemType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="optDouble" type="tns:DoubleMapItemType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="StringMapItemType">
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string" />
+      <xsd:element name="value" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="IntMapItemType">
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string" />
+      <xsd:element name="value" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LongMapItemType">
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string" />
+      <xsd:element name="value" type="xsd:long" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FloatMapItemType">
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string" />
+      <xsd:element name="value" type="xsd:float" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DoubleMapItemType">
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string" />
+      <xsd:element name="value" type="xsd:double" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AuthHeader">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="username" type="xsd:string" />
+      <xsd:element minOccurs="0" name="password" type="xsd:string" />
+      <xsd:element name="token" type="xsd:string" />
+      <xsd:element minOccurs="0" name="target" type="xsd:string" />
+      <xsd:element minOccurs="0" name="accessToken" type="xsd:string" />
+      <xsd:element minOccurs="0" name="account_type" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ResHeader">
+    <xsd:sequence>
+      <xsd:element name="desc" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="failures" type="tns:Failure" />
+      <xsd:element minOccurs="0" name="oprs" type="xsd:int" />
+      <xsd:element minOccurs="0" name="oprtime" type="xsd:int" />
+      <xsd:element minOccurs="0" name="quota" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rquota" type="xsd:int" />
+      <xsd:element name="status" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Failure">
+    <xsd:sequence>
+      <xsd:element name="code" type="xsd:int" />
+      <xsd:element minOccurs="0" name="message" type="xsd:string" />
+      <xsd:element name="position" type="xsd:string" />
+      <xsd:element minOccurs="0" name="content" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AuthHeader" type="tns:AuthHeader" />
+  <xsd:element name="ResHeader" type="tns:ResHeader" />
+</xsd:schema>

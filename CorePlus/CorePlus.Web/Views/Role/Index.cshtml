@@ -1,0 +1,37 @@
+﻿@model IEnumerable<CorePlus.Entity.RoleInfoEntity>
+@{
+    ViewBag.Title = "角色管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>
+    角色管理-列表</h2>
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table id="datalist" width="100%">
+    <tr>
+        <th>
+            角色名称
+        </th>
+        <th>
+            中文名
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChnName)
+            </td>
+            <td>
+                @Html.ActionLink("修改", "EditWithMenuIds", new { id = item.ID }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.ID }, new { onclick = "return confirm('确认删除吗？')" })
+            </td>
+        </tr>
+    }
+</table>

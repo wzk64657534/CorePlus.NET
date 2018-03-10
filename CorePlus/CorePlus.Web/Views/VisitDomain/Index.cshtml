@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="../../Js/component.js"></script>
+<script type="text/javascript" src="../../Js/Visit/visit.js"></script>
+<script type="text/javascript" src="../../Js/Visit/VisitAnalyse/DomainIndex.js"></script>
+<div class="rightContainer">
+    <div class="cont_domain">
+        <div class="right_top_title">
+            <span id="right_top_title">受访分析-受访域名<span id="timePeriod"></span></span> <a class="help rightHeaderTip"
+                title="提供访客对网站中各个域名的访问情况。不同域名下所包含的产品、内容有差异，可通过此功能了解不同内容的受欢迎程度以及运营成效。">&nbsp;</a>
+        </div>
+        <div class="time_tool">
+            <div id="time_tool" class="time_tool" style="width: 1031px;">
+                <div class="day">
+                    <ul id="time_tool_quick_key">
+                        <li id="time_tool_today"><a info="0">今日</a></li>
+                        <li id="time_tool_yesterday"><a info="-1">昨日</a></li>
+                        <li id="time_tool_7days"><a info="-7">最近7日</a></li>
+                        <li id="time_tool_ago30days"><a info="-30">最近30日</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="summary">
+            <table id="cont_domain_summary_table" style="display: table;">
+                <tbody>
+                    <tr>
+                        <td class="sum_title">
+                            浏览次数(PV)<a title="即通常说的PV（PageView）值，用户每打开1个网站页面，记录1个PV。用户多次打开同一页面PV累计多次。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            独立访客(UV)<a title="1天（00:00-24:00）之内，访问网站的不重复用户数（以浏览器cookie为依据），一天内同一访客多次访问网站只被计算1次。"
+                                class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            IP<a title="1天（00:00-24:00）之内，访问网站的不重复IP数。一天内相同IP地址多次访问网站只被计算1次。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            人均浏览页数<a title="平均每个独立访客产生的PV。人均浏览页数=浏览次数/独立访客。体现网站对访客的吸引程度。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title no_border">
+                            浏览次数占比<a title="该受访域名或页面产生的PV占全站总PV的比率。" class="sum_help">&nbsp;</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sum_data" id="banner_pv">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_uv">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_ip">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_pvavg">
+                            0
+                        </td>
+                        <td class="sum_data no_border" id="banner_percent">
+                            0%
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="data_flash">
+            <div id="chartComm">
+                <div class="chartInner">
+                    <div id="divChart">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

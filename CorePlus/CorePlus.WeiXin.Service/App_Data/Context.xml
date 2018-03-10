@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+    <object id="dbContext" type="Core.CoreDBContext ,Core" scope="request" singleton="true">
+        <property name="Mappings">
+            <list element-type="Core.IMapping ,Core">
+                <!-- 微信 -->
+                <ref object="textMapping"/>
+                <ref object="linkMapping"/>
+                <ref object="imageMapping"/>
+                <ref object="locationMapping"/>
+                <ref object="videoMapping"/>
+                <ref object="voiceMapping"/>
+
+                <ref object="locationEventMapping"/>
+                <ref object="menuEventMapping"/>
+                <ref object="scanEventMapping"/>
+                <ref object="subscribeEventMapping"/>
+
+                <ref object="recognitionMapping"/>
+
+                <ref object="replyImageTextMapping"/>
+                <ref object="replyTextMapping"/>
+
+                <ref object="wxAccountMapping"/>
+                <ref object="wxSubUserMapping"/>
+                <ref object="wxGroupMapping"/>
+                <ref object="wxSubscribeConfigMapping"/>
+            </list>
+        </property>
+    </object>
+</objects>

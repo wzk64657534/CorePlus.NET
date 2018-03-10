@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="../../Js/component.js"></script>
+<script type="text/javascript" src="../../Js/Visit/visit.js"></script>
+<script type="text/javascript" src="../../Js/Visit/VisitorAnalyse/LoyaltyIndex.js"></script>
+<div id="content">
+    <div id="tab1" style="display: block;">
+        <div class="rightContainer">
+            <div class="box">
+                <div class="right_top_title">
+                    <span>访客分析-忠诚度<span id="timePeriod"></span></span> <a title="从访客一天内回访网站的次数(日访问频度)与访客上次访问网站的时间两个角度，分析访客对网站的访问粘性、忠诚度、吸引程度。提升网站内容的更新频率、增强用户体验与用户价值可以有更高的忠诚度。"
+                        class="help rightHeaderTip">&nbsp;</a>
+                </div>
+                <div class="time_tool">
+                    <div class="time_tool sticky" style="width: 1031px;">
+                        <div class="day">
+                            <ul id="time_tool_quick_key">
+                                <li id="time_tool_today"><a info="0">今日</a></li>
+                                <li id="time_tool_yesterday"><a info="-1">昨日</a></li>
+                                <li id="time_tool_7days"><a info="-7">最近7日</a></li>
+                                <li id="time_tool_ago30days"><a info="-30">最近30日</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary">
+                    <table id="cont_domain_summary_table" style="display: table;">
+                        <tbody>
+                            <tr>
+                                <td class="sum_title">
+                                    独立访客(UV)<a title="1天（00:00-24:00）之内，访问网站的不重复用户数（以浏览器cookie为依据），一天内同一访客多次访问网站只被计算1次。"
+                                        class="sum_help">&nbsp;</a>
+                                </td>
+                                <td class="sum_title">
+                                    浏览次数(PV)<a title="即通常说的PV（PageView）值，用户每打开1个网站页面，记录1个PV。用户多次打开同一页面PV累计多次。" class="sum_help">&nbsp;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="sum_data" id="banner_uv">
+                                    0
+                                </td>
+                                <td class="sum_data" id="banner_pv">
+                                    0
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="report_data">
+                    <!--  受访页面表格 -->
+                    <div class="report_title">
+                        <ul id="tabs_report">
+                            <li>查看：</li>
+                            <li class="item selected">日访问频度
+                                <img title="同一个访客在一天内访问网站的次数。访问次数越多忠诚度越高。查看多日时，将显示按日平均数据。" alt="" src="../../Content/images/wh.png"
+                                    border="0" width="12" height="12">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="choice">
+                        <div class="choice-right">
+                            <div class="fleft">
+                                <input id="txbSearch" type="text" style="color: #ccc; width: 250px;" class="util_search_input1 lightGray" /></div>
+                            <div class="button fleft">
+                                <a class="filter_button1" id="btnSearch">搜索</a></div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="zhannei_shoufang_content" style="display: block;">
+                        <table id="dg" border="0">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="misc">
+</div>

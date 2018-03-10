@@ -1,0 +1,47 @@
+﻿@model CorePlus.Entity.ServantInfoEntity
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function afterAdd(data) {
+        //关闭对话框，刷新表格
+        if (data == "ok") {
+            window.parent.window.afterAdd();
+        } else {
+            $.messager.alert("错误信息", data);
+        }
+    }
+
+    function submitFrm() {
+        $("form").submit();
+    }
+</script>
+@using (Ajax.BeginForm("Add", new AjaxOptions() { OnSuccess = "afterAdd" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.UserId)
+    <br />
+    <div id="divFrm">
+        <table width="95%" border="0" cellpadding="5" cellspacing="5" style="margin-left: 5px;">
+            <tr>
+                <td>
+                    账户名称
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.UserName, new Dictionary<string, object>{　　　　　　　　　　　　　　　　
+                    {"style","width:300px; height:20px;" }})
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    中文名称
+                </td>
+                <td>@Html.TextBoxFor(model => model.ChnName, new { @Style = "width:300px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.ChnName)
+                </td>
+            </tr>
+        </table>
+    </div>
+}

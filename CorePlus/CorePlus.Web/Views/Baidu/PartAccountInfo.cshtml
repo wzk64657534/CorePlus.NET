@@ -1,0 +1,13 @@
+﻿@model CorePlus.Entity.AccountInfoEntity
+<div id="manage-stat-container">
+    <div class="ui_materiallevel">
+        账户：<span class="ui_materiallevel_lastword">@(Model.AccountName)</span>
+    </div>
+    <ul class="manage_stat" style="display: block;">
+        <li class="noborder" style="border-left: 0;">余额：<span class="ui_label"> <span class="accountstatus_3">
+            ￥@Model.Balance</span> </span></li>
+        <li><span class="ui_label">日预算</span> ：<span class="detail ui_label">@Model.Budget</span>
+        </li>
+        <li>推广地域：<span class="detail ui_label">@ViewBag.RegionsCn</span></li>
+    </ul>
+</div>

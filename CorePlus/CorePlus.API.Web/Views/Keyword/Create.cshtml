@@ -1,0 +1,90 @@
+﻿@model CorePlus.Entity.KeywordInfoEntity
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function afterAdd(data) {
+        //关闭对话框，刷新表格
+        //        if (data == "ok") {
+        //            window.parent.window.afterAdd();
+        //        } else {
+        //            $.messager.alert("错误信息", data);
+        //        }
+        window.parent.window.afterAdd();
+    }
+
+    function submitFrm() {
+        $("form").submit();
+    }
+</script>
+@using (Ajax.BeginForm("Create", new AjaxOptions() { OnSuccess = "afterAdd" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.AccountName)
+    @Html.HiddenFor(model => model.Status)
+    <br />
+    <table width="90%" border="0" cellpadding="5" cellspacing="5" style="margin-left: 5px;">
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.AdgroupId)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.AdgroupId,
+                CorePlus.API.Web.ConstWebHelper.Adgroup,
+                new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                @Html.ValidationMessageFor(model => model.AdgroupId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Keyword)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Keyword,
+                new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                @Html.ValidationMessageFor(model => model.Keyword)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Price)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Price,
+                new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                @Html.ValidationMessageFor(model => model.Price)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.DestinationUrl)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.DestinationUrl,
+                new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                @Html.ValidationMessageFor(model => model.DestinationUrl)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.MatchType)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.MatchType,
+                CorePlus.API.Web.ConstWebHelper.MatchType,
+                new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Pause)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.Pause,
+                CorePlus.API.Web.ConstWebHelper.Pause,
+                new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+            </td>
+        </tr>
+    </table>
+}

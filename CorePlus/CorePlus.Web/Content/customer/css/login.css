@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+font:12px Tahoma,Verdana,sans-serif,simsun;
+color:#666666;
+line-height:21px;
+ background: url(../images/xian.jpg) repeat-x #02609C;}
+ 
+a:link,a:visited {color:#666666;;}
+a:hover,a:active {color:#FF3300;}
+
+a.red:link,a.red:visited { color:#FF3300;}
+a.red:hover,a.red:active {color:#404040;}
+
+.white a:link,.white a:visited{color:#FFFFFF; }
+.white a:hover,.white a:active{ color:#FF0000;}
+
+*{ margin:0 auto;padding:0; text-decoration:none;list-style:none; }
+p{text-indent:2em;}
+img{border:0;}
+.clear{clear:both;}
+.box{ 
+     background:url(../images/loginbg.jpg) no-repeat center top;
+	 width:1003px;
+	 height:613px;
+	 overflow:hidden;}
+	 
+/*此处overflow:hidden;属性必须有，否则此父块会随着.main一起 margin-top:145px;而掉下来	*/ 
+  
+.main{ 
+        background:url(../images/loginbox.jpg) no-repeat center; 
+		width:582px;
+		 height:326px;
+		 margin-top:145px; }
+		 
+.login{
+        width:185px; 
+		height:115px;
+		padding-top:112px;}
+		 
+.login_list{ 
+              width:185px;
+			  height:21px;
+			  line-height:21px;
+			  padding-bottom:20px;
+			  color:#BAD0DD;}
+			  
+.login_list_l{
+              width:55px; 
+			  height:21px;
+			  float:left;
+			  text-align:right;}
+			  
+.login_list_r{
+              width:120px; 
+			  height:21px;
+			  float: right;}
+			  
+.login_list input{ 
+            width:100px;
+			padding:0 10px;
+			height:19px;
+			border:1px solid #0468A7; 
+			background-color:#32A2E3; 
+			line-height:19px; }
+			
+.login_list_r_l{
+            width:70px; 
+			float:left;}
+			
+.login_list_r_r{
+            width:42px;
+			float:right;}
+			
+.login_mm{
+           width:185px;
+		   height:21px;
+		   text-align:right;}
+.login_an{
+           width:130px; 
+		   padding-left:55px; 
+		   height:36px; 
+		   padding-top:13px; 
+		   line-height:36px;}
+		   
+.login_an_l{ 
+            width:66px; 
+			height:36px; 
+			float:left;}
+			
+.login_an_r{
+             width:64px; 
+			 height:36px; 
+			 float:left; 
+			 text-align:center;}
+			 
+			 .loginbutton
+{
+	background-image: url('../images/button.jpg');
+                            width: 66px; height: 36px; border: 0px; cursor: pointer;
+	}

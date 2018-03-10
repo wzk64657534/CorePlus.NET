@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CorePlus.Entity.MenuInfoEntity>
+@{
+    ViewBag.Title = "菜单管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>
+    菜单管理-列表</h2>
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table id="datalist" width="100%" cellpadding="3" cellspacing="3" border="0">
+    <tr>
+        <th>
+            菜单名称
+        </th>
+        <th>
+            控制器
+        </th>
+        <th>
+            行为
+        </th>
+        <th>
+            用户菜单
+        </th>
+        <th>
+            链接
+        </th>
+        <th>
+            图标名称
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MenuName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Controller)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Action)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsToUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IconName)
+            </td>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.ID }, new { onclick = "return confirm('确认删除吗？')" })
+            </td>
+        </tr>
+    }
+</table>
+<div id="pager">
+</div>

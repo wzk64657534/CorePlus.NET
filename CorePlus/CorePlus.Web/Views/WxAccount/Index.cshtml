@@ -1,0 +1,115 @@
+﻿@model CorePlus.WeiXin.Entity.WxAccountEntity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="divFrm">
+    <fieldset>
+        <legend>账户信息</legend>
+        <table width="100%" border="0" cellpadding="5" cellspacing="5">
+            <tr>
+                <td style="width: 150px;">
+                    <div class="display-label">
+                        Token
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">@Model.Token</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="display-label">
+                        appid
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">@Model.AppId</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="display-label">
+                        secret
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">@Model.Secret</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="display-label">
+                        grant_type
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">@Model.GrantType</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="display-label">
+                        凭证有效时间(单位：秒)
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">@Model.ExpiresIn</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="display-label">
+                        WeiXinNo
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">@Model.WeiXinNo</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="display-label">
+                        是否需要记录
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">
+                        @{ if (Model.IsSaveRecord)
+                           {
+                            <text>是</text>
+                           }
+                           else
+                           {
+                            <text>否</text>
+                           }
+                        }
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="display-label">
+                        是否高级会员
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">
+                        @{ if (Model.IsAdvanced)
+                           {
+                            <text>是</text>
+                           }
+                           else
+                           {
+                            <text>否</text>
+                           }
+                        }
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p>
+            @Html.ActionLink("完善资料", "Edit", new { id = Model.ID })
+        </p>
+    </fieldset>
+</div>

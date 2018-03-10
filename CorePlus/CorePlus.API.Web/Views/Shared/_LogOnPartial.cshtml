@@ -1,0 +1,36 @@
+﻿<link href="@Url.Content("~/Content/customer/css/navigation.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/customer/navigation.js")" type="text/javascript"></script>
+@if (Request.IsAuthenticated)
+{
+    <text> <span style="color: #a8d7ff;">您好：<strong>@User.Identity.Name</strong></span>
+    |
+    <ul class="topmenu" id="jq_topmenu">
+        <li class="webnav"><strong>功能导航</strong>
+            <div class="jq_hidebox" style="display: none;">
+                <div class="aSty01">
+                    <div class="title">
+                        - 基本信息</div>
+                    <div class="body">
+                        <a href="\Customer\ChangePassword" target="ifmMain">修改密码</a>|<a href="\Customer\EditInfo"
+                            target="ifmMain">用户资料</a>
+                    </div>
+                    <div class="title">
+                        - 我的账户</div>
+                    <div class="body">
+                        <a href="\Customer\BuyService" target="ifmMain">开通服务</a>|<a href="\Customer\Charge"
+                            target="ifmMain">账户充值</a>
+                    </div>
+                    <div class="title">
+                    </div>
+                    <div class="body">
+                        <a href="\Home\LogOff" onclick="return confirm('确定要退出吗？');">退出</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    </text>}
+else
+{
+    @:[ @Html.ActionLink("登录", "LogOn", "Account") ]
+}

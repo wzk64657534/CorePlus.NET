@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/sms/v2" xmlns:common="http://api.baidu.com/sem/common/v2" name="FolderService" targetNamespace="https://api.baidu.com/sem/sms/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/sms/v2">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/sms/v2/FolderService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:complexType name="Folder">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="folderId" type="xsd:long" />
+          <xsd:element name="folderName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Monitor">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="monitorId" type="xsd:long" />
+          <xsd:element name="folderId" type="xsd:long" />
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="campaignId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="type" type="xsd:int" />
+          <xsd:element minOccurs="0" ref="common:opt" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FolderMonitor">
+        <xsd:sequence>
+          <xsd:element name="folderId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="monitors" type="tns:Monitor" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="KeywordMonitor">
+        <xsd:sequence>
+          <xsd:element name="keywordId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="monitors" type="tns:Monitor" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getFolderRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="folderIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFolderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="folders" type="tns:Folder" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMonitorWordByMonitorIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="monitorIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMonitorWordByMonitorIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="monitors" type="tns:Monitor" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMonitorWordByFolderIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="folderIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMonitorWordByFolderIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="folderMonitors" type="tns:FolderMonitor" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMonitorWordByKeywordIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="keywordIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getMonitorWordByKeywordIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="keywordMonitors" type="tns:KeywordMonitor" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addFolderRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="folders" type="tns:Folder" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addFolderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="folders" type="tns:Folder" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateFolderRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="folders" type="tns:Folder" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateFolderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="folders" type="tns:Folder" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteFolderRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="folderIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteFolderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addMonitorWordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="monitors" type="tns:Monitor" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addMonitorWordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="monitors" type="tns:Monitor" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteMonitorWordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="monitorIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteMonitorWordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getMonitorWordByMonitorIdRequest">
+    <wsdl:part name="parameters" element="tns:getMonitorWordByMonitorIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="addFolderRequest">
+    <wsdl:part name="parameters" element="tns:addFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="deleteMonitorWordResponse">
+    <wsdl:part name="parameters" element="tns:deleteMonitorWordResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteFolderResponse">
+    <wsdl:part name="parameters" element="tns:deleteFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMonitorWordByFolderIdResponse">
+    <wsdl:part name="parameters" element="tns:getMonitorWordByFolderIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFolderResponse">
+    <wsdl:part name="parameters" element="tns:getFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMonitorWordByFolderIdRequest">
+    <wsdl:part name="parameters" element="tns:getMonitorWordByFolderIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:message name="getMonitorWordByMonitorIdResponse">
+    <wsdl:part name="parameters" element="tns:getMonitorWordByMonitorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateFolderResponse">
+    <wsdl:part name="parameters" element="tns:updateFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="addMonitorWordRequest">
+    <wsdl:part name="parameters" element="tns:addMonitorWordRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateFolderRequest">
+    <wsdl:part name="parameters" element="tns:updateFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="deleteFolderRequest">
+    <wsdl:part name="parameters" element="tns:deleteFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="addMonitorWordResponse">
+    <wsdl:part name="parameters" element="tns:addMonitorWordResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getFolderRequest">
+    <wsdl:part name="parameters" element="tns:getFolderRequest" />
+  </wsdl:message>
+  <wsdl:message name="getMonitorWordByKeywordIdResponse">
+    <wsdl:part name="parameters" element="tns:getMonitorWordByKeywordIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteMonitorWordRequest">
+    <wsdl:part name="parameters" element="tns:deleteMonitorWordRequest" />
+  </wsdl:message>
+  <wsdl:message name="addFolderResponse">
+    <wsdl:part name="parameters" element="tns:addFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMonitorWordByKeywordIdRequest">
+    <wsdl:part name="parameters" element="tns:getMonitorWordByKeywordIdRequest" />
+  </wsdl:message>
+  <wsdl:portType name="FolderService">
+    <wsdl:operation name="getFolder">
+      <wsdl:input message="tns:getFolderRequest" />
+      <wsdl:output message="tns:getFolderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMonitorWordByMonitorId">
+      <wsdl:input message="tns:getMonitorWordByMonitorIdRequest" />
+      <wsdl:output message="tns:getMonitorWordByMonitorIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMonitorWordByFolderId">
+      <wsdl:input message="tns:getMonitorWordByFolderIdRequest" />
+      <wsdl:output message="tns:getMonitorWordByFolderIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMonitorWordByKeywordId">
+      <wsdl:input message="tns:getMonitorWordByKeywordIdRequest" />
+      <wsdl:output message="tns:getMonitorWordByKeywordIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addFolder">
+      <wsdl:input message="tns:addFolderRequest" />
+      <wsdl:output message="tns:addFolderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateFolder">
+      <wsdl:input message="tns:updateFolderRequest" />
+      <wsdl:output message="tns:updateFolderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteFolder">
+      <wsdl:input message="tns:deleteFolderRequest" />
+      <wsdl:output message="tns:deleteFolderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addMonitorWord">
+      <wsdl:input message="tns:addMonitorWordRequest" />
+      <wsdl:output message="tns:addMonitorWordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteMonitorWord">
+      <wsdl:input message="tns:deleteMonitorWordRequest" />
+      <wsdl:output message="tns:deleteMonitorWordResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FolderServiceSOAP" type="tns:FolderService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getFolder">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/getFolder" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMonitorWordByMonitorId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/getMonitorWordByMonitorId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMonitorWordByFolderId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/getMonitorWordByFolderId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMonitorWordByKeywordId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/getMonitorWordByKeywordId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addFolder">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/addFolder" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateFolder">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/updateFolder" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteFolder">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/deleteFolder" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMonitorWord">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/addMonitorWord" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteMonitorWord">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/FolderService/deleteMonitorWord" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FolderService">
+    <wsdl:port name="FolderService" binding="tns:FolderServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/sms/v2/FolderService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

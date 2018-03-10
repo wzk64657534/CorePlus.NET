@@ -1,0 +1,71 @@
+﻿@model CorePlus.WeiXin.Entity.WxSubscribeConfigEntity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="divFrm">
+    <fieldset>
+        <legend>配置信息</legend>
+        <table width="100%" border="0" cellpadding="5" cellspacing="5">
+            <tr>
+                <td style="width: 150px;">
+                    <div class="display-label">
+                        默认回复类型
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">
+                        @{
+                            var list = CorePlus.Web.EntityWebHelper.GetReplyTypeList();
+                            foreach (var item in list)
+                            {
+                                if (item.Value == Model.ReplyType)
+                                {
+                            @item.Text;
+                                      break;
+                                }
+                            }
+                        }
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px;">
+                    <div class="display-label">
+                        是否记录关注者
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">
+                        @{ if (Model.IsSaveUser)
+                           {
+                            <text>是</text>
+                           }
+                           else
+                           {
+                            <text>否</text>
+                           }
+                        }
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px;">
+                    <div class="display-label">
+                        OPENID保存链接
+                    </div>
+                </td>
+                <td>
+                    <div class="display-field">
+                        @Model.SaveUrl
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p>
+            @Html.ActionLink("完善资料", "Edit", new { id = Model.ID })|
+            @Html.ActionLink("编辑文本回复", "EditText")|
+            @Html.ActionLink("编辑图文回复", "EditImageText")
+        </p>
+    </fieldset>
+</div>

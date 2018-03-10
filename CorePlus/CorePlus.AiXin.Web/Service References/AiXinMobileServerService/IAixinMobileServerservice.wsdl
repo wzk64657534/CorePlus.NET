@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="IAixinMobileServerservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="WebActionUserLogin0Request">
+    <part name="AParamsData" type="xs:string" />
+    <part name="AHMACMD5" type="xs:string" />
+  </message>
+  <message name="WebActionUserLogin0Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="WebActionToExecute1Request">
+    <part name="AParamsData" type="xs:string" />
+    <part name="AHMACMD5" type="xs:string" />
+  </message>
+  <message name="WebActionToExecute1Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="MobileActionUserLogin2Request">
+    <part name="AParamsData" type="xs:string" />
+    <part name="AHMACMD5" type="xs:string" />
+  </message>
+  <message name="MobileActionUserLogin2Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="MobileActionToExecute3Request">
+    <part name="AParamsData" type="xs:string" />
+    <part name="AHMACMD5" type="xs:string" />
+  </message>
+  <message name="MobileActionToExecute3Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="DimooActionUserLogin4Request">
+    <part name="AParamsData" type="xs:string" />
+    <part name="AHMACMD5" type="xs:string" />
+  </message>
+  <message name="DimooActionUserLogin4Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="DimooActionToExecute5Request">
+    <part name="AParamsData" type="xs:string" />
+    <part name="AHMACMD5" type="xs:string" />
+  </message>
+  <message name="DimooActionToExecute5Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <portType name="IAixinMobileServer">
+    <operation name="WebActionUserLogin">
+      <input message="tns:WebActionUserLogin0Request" />
+      <output message="tns:WebActionUserLogin0Response" />
+    </operation>
+    <operation name="WebActionToExecute">
+      <input message="tns:WebActionToExecute1Request" />
+      <output message="tns:WebActionToExecute1Response" />
+    </operation>
+    <operation name="MobileActionUserLogin">
+      <input message="tns:MobileActionUserLogin2Request" />
+      <output message="tns:MobileActionUserLogin2Response" />
+    </operation>
+    <operation name="MobileActionToExecute">
+      <input message="tns:MobileActionToExecute3Request" />
+      <output message="tns:MobileActionToExecute3Response" />
+    </operation>
+    <operation name="DimooActionUserLogin">
+      <input message="tns:DimooActionUserLogin4Request" />
+      <output message="tns:DimooActionUserLogin4Response" />
+    </operation>
+    <operation name="DimooActionToExecute">
+      <input message="tns:DimooActionToExecute5Request" />
+      <output message="tns:DimooActionToExecute5Response" />
+    </operation>
+  </portType>
+  <binding name="IAixinMobileServerbinding" type="tns:IAixinMobileServer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="WebActionUserLogin">
+      <soap:operation soapAction="urn:AixinMobileServerIntf-IAixinMobileServer#WebActionUserLogin" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="WebActionToExecute">
+      <soap:operation soapAction="urn:AixinMobileServerIntf-IAixinMobileServer#WebActionToExecute" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="MobileActionUserLogin">
+      <soap:operation soapAction="urn:AixinMobileServerIntf-IAixinMobileServer#MobileActionUserLogin" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="MobileActionToExecute">
+      <soap:operation soapAction="urn:AixinMobileServerIntf-IAixinMobileServer#MobileActionToExecute" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DimooActionUserLogin">
+      <soap:operation soapAction="urn:AixinMobileServerIntf-IAixinMobileServer#DimooActionUserLogin" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="DimooActionToExecute">
+      <soap:operation soapAction="urn:AixinMobileServerIntf-IAixinMobileServer#DimooActionToExecute" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:AixinMobileServerIntf-IAixinMobileServer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IAixinMobileServerservice">
+    <port name="IAixinMobileServerPort" binding="tns:IAixinMobileServerbinding">
+      <soap:address location="http://58.216.207.197/aixinmobileservice.dll/soap/IAixinMobileServer" />
+    </port>
+  </service>
+</definitions>

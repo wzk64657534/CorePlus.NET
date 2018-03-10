@@ -1,0 +1,62 @@
+﻿@model CorePlus.Entity.MenuInfoEntity
+@{
+    ViewBag.Title = "菜单管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>
+    菜单管理-修改</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    
+    @Html.HiddenFor(model => model.ID)
+    <fieldset>
+        <legend>菜单信息</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MenuName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MenuName)
+            @Html.ValidationMessageFor(model => model.MenuName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Controller)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Controller)
+            @Html.ValidationMessageFor(model => model.Controller)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Action)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Action)
+            @Html.ValidationMessageFor(model => model.Action)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsToUser)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.IsToUser) 选中为[是]
+            @Html.ValidationMessageFor(model => model.IsToUser)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Link)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Link)
+            @Html.ValidationMessageFor(model => model.Link)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IconName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IconName)
+            @Html.ValidationMessageFor(model => model.IconName)
+        </div>
+        <p>
+            <input type="submit" value="保存" />
+            @Html.ActionLink("返回菜单管理", "Index")
+        </p>
+    </fieldset>
+}

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/sms/v2" xmlns:common="http://api.baidu.com/sem/common/v2" name="NewCreativeService" targetNamespace="https://api.baidu.com/sem/sms/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/sms/v2">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/sms/v2/NewCreativeService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:element name="GetSublinkIdByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="GroupSublinkId">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkIds" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetSublinkIdByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupSublinkIds" type="tns:GroupSublinkId" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetSublinkBySublinkIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="sublinkIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="SublinkInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" name="description" type="xsd:string" />
+          <xsd:element minOccurs="1" name="destinationUrl" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SublinkType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="sublinkId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkInfos" type="tns:SublinkInfo" />
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="pause" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GetSublinkBySublinkIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddSublinkRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddSublinkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateSublinkRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateSublinkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkTypes" type="tns:SublinkType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeleteSublinkRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="sublinkIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeleteSublinkResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="optResult" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSublinkIdByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:GetSublinkIdByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetSublinkBySublinkIdRequest">
+    <wsdl:part name="parameters" element="tns:GetSublinkBySublinkIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSublinkResponse">
+    <wsdl:part name="parameters" element="tns:UpdateSublinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSublinkResponse">
+    <wsdl:part name="parameters" element="tns:DeleteSublinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSublinkRequest">
+    <wsdl:part name="parameters" element="tns:UpdateSublinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddSublinkResponse">
+    <wsdl:part name="parameters" element="tns:AddSublinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSublinkIdByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:GetSublinkIdByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddSublinkRequest">
+    <wsdl:part name="parameters" element="tns:AddSublinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSublinkRequest">
+    <wsdl:part name="parameters" element="tns:DeleteSublinkRequest" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSublinkBySublinkIdResponse">
+    <wsdl:part name="parameters" element="tns:GetSublinkBySublinkIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NewCreativeService">
+    <wsdl:operation name="getSublinkIdByAdgroupId">
+      <wsdl:input message="tns:GetSublinkIdByAdgroupIdRequest" />
+      <wsdl:output message="tns:GetSublinkIdByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSublinkBySublinkId">
+      <wsdl:input message="tns:GetSublinkBySublinkIdRequest" />
+      <wsdl:output message="tns:GetSublinkBySublinkIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addSublink">
+      <wsdl:input message="tns:AddSublinkRequest" />
+      <wsdl:output message="tns:AddSublinkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSublink">
+      <wsdl:input message="tns:UpdateSublinkRequest" />
+      <wsdl:output message="tns:UpdateSublinkResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSublink">
+      <wsdl:input message="tns:DeleteSublinkRequest" />
+      <wsdl:output message="tns:DeleteSublinkResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NewCreativeServiceSOAP" type="tns:NewCreativeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getSublinkIdByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/NewCreativeService/getSublinkIdByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSublinkBySublinkId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/NewCreativeService/getSublinkBySublinkId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSublink">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/NewCreativeService/addSublink" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSublink">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/NewCreativeService/updateSublink" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSublink">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/NewCreativeService/deleteSublink" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NewCreativeService">
+    <wsdl:port name="NewCreativeService" binding="tns:NewCreativeServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/sms/v2/NewCreativeService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

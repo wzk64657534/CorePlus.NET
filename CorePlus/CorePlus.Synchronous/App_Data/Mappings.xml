@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+    <!-- API -->
+    <object id="accountMapping" type="Core.CoreMapping&lt;CorePlus.Entity.AccountInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="accountStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.AccountStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="adgroupMapping" type="Core.CoreMapping&lt;CorePlus.Entity.AdgroupInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="adgroupStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.AdgroupStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="campaignMapping" type="Core.CoreMapping&lt;CorePlus.Entity.CampaignInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="campaignStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.CampaignStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="creativeMapping" type="Core.CoreMapping&lt;CorePlus.Entity.CreativeInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="creativeStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.CreativeStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="keywordMapping" type="Core.CoreMapping&lt;CorePlus.Entity.KeywordInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="keywordStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.KeywordStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="sublinkMapping" type="Core.CoreMapping&lt;CorePlus.Entity.SublinkInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="folderMapping" type="Core.CoreMapping&lt;CorePlus.Entity.FolderInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="monitorMapping" type="Core.CoreMapping&lt;CorePlus.Entity.MonitorInfoEntity&gt; ,Core" singleton="true"/>
+
+    <!-- 统计 -->
+    <object id="visitMapping" type="Core.CoreMapping&lt;CorePlus.Entity.VisitInfoEntity&gt; ,Core" singleton="true"/>
+
+    <!-- 系统 -->
+    <object id="menuMapping" type="Core.CoreMapping&lt;CorePlus.Entity.MenuInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="logMapping" type="Core.CoreMapping&lt;CorePlus.Entity.LogInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="managerMapping" type="Core.CoreMapping&lt;CorePlus.Entity.ManagerInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="paramDtsMapping" type="Core.CoreDetailMapping&lt;CorePlus.Entity.ParamDtsInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="paramMapping" type="Core.CoreMapping&lt;CorePlus.Entity.ParamInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="roleMapping" type="Core.CoreMapping&lt;CorePlus.Entity.RoleInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="userMapping" type="Core.CoreMapping&lt;CorePlus.Entity.UserInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="sideMenuMapping" type="Core.CoreMapping&lt;CorePlus.Entity.SideMenuInfoEntity&gt; ,Core" singleton="true"/>
+
+    <object id="roleMenuMapping" type="CorePlusWeb.MenuRoleMapping ,CorePlusWeb" singleton="true"/>
+
+    <!-- 同步 -->
+    <object id="synDataMapping" type="Core.CoreMapping&lt;CorePlus.Entity.SynDataInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="synCheckedDataMapping" type="Core.CoreMapping&lt;CorePlus.Entity.SynCheckedDataInfoEntity&gt; ,Core" singleton="true"/>
+</objects>

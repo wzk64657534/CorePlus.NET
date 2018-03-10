@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>后台管理</title>
+    <link href="@Url.Content("~/Content/customer/css/common.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/easyui/jquery-1.8.0.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div id="Top" class="header-wrapper">
+        <div class="header">
+            <div class="logo">
+                <a href="#">
+                    <img alt="CorePlus" src="../../Content/customer/images/logo.png" />
+                </a>
+            </div>
+            <div class="top-nav">
+                @Html.Partial("_AdminLogOn")
+            </div>
+            <div class="view-tab">
+            </div>
+        </div>
+    </div>
+    <div class="body clearfix">
+        <div class="aside">
+            <ul class="nav">
+                <li><a class="recordable close" href="#">模块管理</a>
+                    @{Html.RenderAction("AdminMenu", "Menu");}
+                </li>
+            </ul>
+        </div>
+        <div class="misc">
+        </div>
+        <div class="main">
+            <iframe id="ifmMain" name="ifmMain" frameborder="0" marginheight="0" marginwidth="0"
+                width="100%" scrolling="no" height="700"></iframe>
+        </div>
+    </div>
+    <script src="@Url.Content("~/Scripts/customer/tangram.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/customer/common.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/customer/dc.js")" type="text/javascript"></script>
+</body>
+</html>

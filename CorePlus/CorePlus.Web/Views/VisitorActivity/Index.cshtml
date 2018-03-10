@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="../../Js/component.js"></script>
+<script type="text/javascript" src="../../Js/Visit/visit.js"></script>
+<script type="text/javascript" src="../../Js/Visit/VisitorAnalyse/ActivityIndex.js"></script>
+<div id="content">
+    <div id="tab1" style="display: block;">
+        <div class="rightContainer">
+            <div class="box">
+                <div class="right_top_title">
+                    <span>访客分析-活跃度<span id="timePeriod"></span></span> <a title="从访客单次访问浏览网站的时间与网页数两个角度，分析访客在网站上的活跃程度。提升网站内容的质量与数量可以有更高的活跃度。"
+                        class="help rightHeaderTip">&nbsp;</a>
+                </div>
+                <div class="time_tool">
+                    <div class="time_tool sticky" style="width: 1031px;">
+                        <div class="day">
+                            <ul id="time_tool_quick_key">
+                                <li id="time_tool_today"><a info="0">今日</a></li>
+                                <li id="time_tool_yesterday"><a info="-1">昨日</a></li>
+                                <li id="time_tool_7days"><a info="-7">最近7日</a></li>
+                                <li id="time_tool_ago30days"><a info="-30">最近30日</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary">
+                    <table id="cont_domain_summary_table" style="display: table;">
+                        <tbody>
+                            <tr>
+                                <td class="sum_title">
+                                    平均访问时长<a title="平均访问时长=访问时长/访问次数。体现网站对访客的吸引程度。。" class="sum_help">&nbsp;</a>
+                                </td>
+                                <td class="sum_title">
+                                    访问次数<a title="为一次访问，也称会话(session),1次访问(会话)可能包含多个PV。" class="sum_help">&nbsp;</a>
+                                </td>
+                                <td class="sum_title">
+                                    浏览次数(PV)<a title="即通常说的PV（PageView）值，用户每打开1个网站页面，记录1个PV。用户多次打开同一页面PV累计多次。" class="sum_help">&nbsp;</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="sum_data" id="banner_avgtime">
+                                    0
+                                </td>
+                                <td class="sum_data" id="banner_vc">
+                                    0
+                                </td>
+                                <td class="sum_data" id="banner_pv">
+                                    0
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="report_data">
+                    <!--  受访页面表格 -->
+                    <div class="report_title">
+                        <ul id="tabs_report">
+                            <li>查看：</li>
+                            <li class="item selected">访问时长分布
+                                <img title="一次访问中访客持续停留的时间长度。访问时长越大，活跃度越高。" alt="" src="../../Content/images/wh.png"
+                                    border="0" width="12" height="12">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="choice">
+                        <div class="choice-right">
+                            <div class="fleft">
+                                <input id="txbSearch" type="text" style="color: #ccc; width: 250px;" class="util_search_input1 lightGray" /></div>
+                            <div class="button fleft">
+                                <a class="filter_button1" id="btnSearch">搜索</a></div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="zhannei_shoufang_content" style="display: block;">
+                        <table id="dg" border="0">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="misc">
+</div>

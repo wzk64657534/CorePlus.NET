@@ -1,0 +1,57 @@
+﻿@model CorePlus.Entity.ServantInfoEntity
+@{
+    ViewBag.Title = "Edit";
+}
+<script type="text/javascript">
+
+    function afterEdit(data) {
+        //关闭对话框，刷新表格
+        if (data == "ok") {
+            window.parent.window.afterEdit();
+        }
+    }
+
+    function submitFrm() {
+        $("form").submit();
+    }
+</script>
+@using (Ajax.BeginForm("Edit", new AjaxOptions() { OnSuccess = "afterEdit" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.UserPwd)
+    @Html.HiddenFor(model => model.RoleId)
+    @Html.HiddenFor(model => model.RoleName)
+    @Html.HiddenFor(model => model.UserId)
+    <br />
+    <div id="divFrm">
+        <table width="95%" border="0" cellpadding="5" cellspacing="5" style="margin-left: 5px;">
+            <tr>
+                <td width="120">
+                    账号编号
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.ID, new { @Style = "width:300px; height:20px;", @ReadOnly = "readonly" })
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户名称
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.UserName, new { @Style = "width:300px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.UserName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    中文名称
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.ChnName, new { @Style = "width:300px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.ChnName)
+                </td>
+            </tr>
+        </table>
+    </div>
+}

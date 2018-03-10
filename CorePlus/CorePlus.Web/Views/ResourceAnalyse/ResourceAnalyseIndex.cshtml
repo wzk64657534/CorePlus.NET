@@ -1,0 +1,86 @@
+﻿@model CorePlus.Entity.VisitInfoEntity
+@{
+    ViewBag.Title = "ResourceAnalyseIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="../../Js/component.js"></script>
+<script type="text/javascript" src="../../Js/Visit/visit.js"></script>
+<script type="text/javascript" src="../../Js/Visit/ResourceAnalyse/ResourceAalyseIndex.js"></script>
+<div class="rightContainer">
+    <div class="box">
+        <div class="right_top_title">
+            <span id="right_top_title">来源分析-来源分类（2013-11-18至2013-11-18）</span> <a class="help rightHeaderTip"
+                title="网站概况帮助您整体了解网站情况，提供重点指标趋势图，并从来源、受访、访客等分析维度提供统计数据，可以通过“管理页面部件”选择对您最有分析价值的数据项进行默认显示。">
+                &nbsp;</a>
+        </div>
+        <div class="time_tool">
+            <div id="time_tool" class="time_tool" style="width: 1031px;">
+                <div class="day">
+                    <ul id="time_tool_quick_key">
+                        <li id="time_tool_today"><a info="0">今日</a></li>
+                        <li id="time_tool_yesterday"><a info="-1">昨日</a></li>
+                        <li id="time_tool_7days"><a info="-7">最近7日</a></li>
+                        <li id="time_tool_ago30days"><a info="-30">最近30日</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="summary">
+            <table id="cont_domain_summary_table" style="display: table;">
+                <tbody>
+                    <tr>
+                        <td class="sum_title">
+                            来访次数<a title="即PV值，页面浏览量或点击量，用户每次刷新即被计算一次。指某站点总共有被浏览多少个页面，它是重复累计的，同一个页面被重复浏览也被计入PV 。"
+                                class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            独立访客(UV)<a title="1天（00:00-24:00）之内，访问网站的不重复用户数（以浏览器cookie为依据），一天内同一访客多次访问网站只被计算1次。"
+                                class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            IP<a title="1天（00:00-24:00）之内，访问网站的不重复IP数。一天内相同IP地址多次访问网站只被计算1次。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            新独立访客<a title="由该来源首次进入网站的不重复访客数。。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            浏览次数(PV)<a title="即通常说的PV（PageView）值，用户每打开1个网站页面，记录1个PV。用户多次打开同一页面PV累计多次。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title no_border">
+                            跳出率<a title="仅浏览了一个页面就离开网站的访问次数占比。跳出率越高则该来源访客对网站的兴趣越低。" class="sum_help">&nbsp;</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sum_data" id="banner_vc">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_uv">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_newuv">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_ip">
+                            0
+                        </td>
+                         <td class="sum_data" id="banner_pv">
+                            0
+                        </td>
+                        <td class="sum_data no_border" id="banner_br">
+                            100%
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="data_flash">
+            <div id="chartComm">
+                <div class="chartInner">
+                    <div id="divChart">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="@Url.Content("~/Scripts/easyui/jquery.easyui.min.js")" type="text/javascript"></script>

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/sms/v2" xmlns:common="http://api.baidu.com/sem/common/v2" name="KRService" targetNamespace="https://api.baidu.com/sem/sms/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/sms/v2">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/sms/v2/KRService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:complexType name="SeedFilter">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="matchType" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="10" name="negativeWord" type="xsd:string" />
+          <xsd:element minOccurs="0" name="pvLow" type="xsd:long" />
+          <xsd:element minOccurs="0" name="pvHigh" type="xsd:long" />
+          <xsd:element minOccurs="0" name="competeLow" type="xsd:long" />
+          <xsd:element minOccurs="0" name="competeHigh" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="searchRegion" type="xsd:int" />
+          <xsd:element minOccurs="0" name="regionExtend" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="maxNum" type="xsd:int" />
+          <xsd:element minOccurs="0" name="hotMonth" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="monthFilter" type="xsd:int" />
+          <xsd:element minOccurs="0" name="removeDuplicate" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="duplicateUIds" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="KRResult">
+        <xsd:sequence>
+          <xsd:element name="word" type="xsd:string" />
+          <xsd:element minOccurs="0" name="exactPV" type="xsd:long" />
+          <xsd:element minOccurs="0" name="phrasePV" type="xsd:long" />
+          <xsd:element minOccurs="0" name="broadPV" type="xsd:long" />
+          <xsd:element name="competition" type="xsd:int" />
+          <xsd:element minOccurs="0" name="hotMonth" type="xsd:int" />
+          <xsd:element minOccurs="0" name="hotMonthPV" type="xsd:long" />
+          <xsd:element minOccurs="0" name="group" type="xsd:string" />
+          <xsd:element minOccurs="0" name="flag1" type="xsd:int" />
+          <xsd:element minOccurs="0" name="flag2" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SeedUrl">
+        <xsd:sequence>
+          <xsd:element name="url" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="urlTag" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getKRbySeedWordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="seedWord" type="xsd:string" />
+            <xsd:element minOccurs="0" name="seedFilter" type="tns:SeedFilter" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRbySeedWordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="krResult" type="tns:KRResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRFileIdbySeedWordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="100" name="seedWords" type="xsd:string" />
+            <xsd:element minOccurs="0" name="seedFilter" type="tns:SeedFilter" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRFileIdbySeedWordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="krFileId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRFileStateRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="krFileId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRFileStateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="isGenerated" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRFilePathRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="krFileId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRFilePathResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="filePath" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRQuotaRequest">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRQuotaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="total" type="xsd:long" />
+            <xsd:element name="remain" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRbySeedUrlRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="url" type="xsd:string" />
+            <xsd:element minOccurs="0" name="seedFilter" type="tns:SeedFilter" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRbySeedUrlResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="krResult" type="tns:KRResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSeedWordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="id" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+            <xsd:element minOccurs="0" name="seedFilter" type="tns:SeedFilter" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSeedWordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="seedWords" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSeedUrlRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="id" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+            <xsd:element minOccurs="0" name="seedFilter" type="tns:SeedFilter" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getSeedUrlResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="seedUrls" type="tns:SeedUrl" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRCustomRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="id" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+            <xsd:element minOccurs="0" name="seedFilter" type="tns:SeedFilter" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getKRCustomResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="krResult" type="tns:KRResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetKRByMultiSeedWordRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="seedWords" type="xsd:string" />
+            <xsd:element minOccurs="1" name="seedFilter" type="tns:SeedFilter" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetKRByMultiSeedWordResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="krResult" type="tns:KRResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getKRFilePathResponse">
+    <wsdl:part name="parameters" element="tns:getKRFilePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKRCustomRequest">
+    <wsdl:part name="parameters" element="tns:getKRCustomRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKRFileStateRequest">
+    <wsdl:part name="parameters" element="tns:getKRFileStateRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKRQuotaResponse">
+    <wsdl:part name="parameters" element="tns:getKRQuotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSeedWordRequest">
+    <wsdl:part name="parameters" element="tns:getSeedWordRequest" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:message name="getSeedUrlRequest">
+    <wsdl:part name="parameters" element="tns:getSeedUrlRequest" />
+  </wsdl:message>
+  <wsdl:message name="getSeedWordResponse">
+    <wsdl:part name="parameters" element="tns:getSeedWordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKRFileStateResponse">
+    <wsdl:part name="parameters" element="tns:getKRFileStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKRbySeedUrlResponse">
+    <wsdl:part name="parameters" element="tns:getKRbySeedUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKRbySeedWordRequest">
+    <wsdl:part name="parameters" element="tns:getKRbySeedWordRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetKRByMultiSeedWordRequest">
+    <wsdl:part name="parameters" element="tns:GetKRByMultiSeedWordRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKRbySeedWordResponse">
+    <wsdl:part name="parameters" element="tns:getKRbySeedWordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSeedUrlResponse">
+    <wsdl:part name="parameters" element="tns:getSeedUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKRFilePathRequest">
+    <wsdl:part name="parameters" element="tns:getKRFilePathRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKRFileIdbySeedWordResponse">
+    <wsdl:part name="parameters" element="tns:getKRFileIdbySeedWordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKRCustomResponse">
+    <wsdl:part name="parameters" element="tns:getKRCustomResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getKRbySeedUrlRequest">
+    <wsdl:part name="parameters" element="tns:getKRbySeedUrlRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetKRByMultiSeedWordResponse">
+    <wsdl:part name="parameters" element="tns:GetKRByMultiSeedWordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getKRFileIdbySeedWordRequest">
+    <wsdl:part name="parameters" element="tns:getKRFileIdbySeedWordRequest" />
+  </wsdl:message>
+  <wsdl:message name="getKRQuotaRequest">
+    <wsdl:part name="parameters" element="tns:getKRQuotaRequest" />
+  </wsdl:message>
+  <wsdl:portType name="KRService">
+    <wsdl:operation name="getKRbySeedWord">
+      <wsdl:input message="tns:getKRbySeedWordRequest" />
+      <wsdl:output message="tns:getKRbySeedWordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKRFileIdbySeedWord">
+      <wsdl:input message="tns:getKRFileIdbySeedWordRequest" />
+      <wsdl:output message="tns:getKRFileIdbySeedWordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKRFileState">
+      <wsdl:input message="tns:getKRFileStateRequest" />
+      <wsdl:output message="tns:getKRFileStateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKRFilePath">
+      <wsdl:input message="tns:getKRFilePathRequest" />
+      <wsdl:output message="tns:getKRFilePathResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKRQuota">
+      <wsdl:input message="tns:getKRQuotaRequest" />
+      <wsdl:output message="tns:getKRQuotaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKRbySeedUrl">
+      <wsdl:input message="tns:getKRbySeedUrlRequest" />
+      <wsdl:output message="tns:getKRbySeedUrlResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeedWord">
+      <wsdl:input message="tns:getSeedWordRequest" />
+      <wsdl:output message="tns:getSeedWordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSeedUrl">
+      <wsdl:input message="tns:getSeedUrlRequest" />
+      <wsdl:output message="tns:getSeedUrlResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKRCustom">
+      <wsdl:input message="tns:getKRCustomRequest" />
+      <wsdl:output message="tns:getKRCustomResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getKRByMultiSeedWord">
+      <wsdl:input message="tns:GetKRByMultiSeedWordRequest" />
+      <wsdl:output message="tns:GetKRByMultiSeedWordResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KRServiceSOAP" type="tns:KRService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getKRbySeedWord">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getKRbySeedWord" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKRFileIdbySeedWord">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getKRFileIdbySeedWord" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKRFileState">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getKRFileState" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKRFilePath">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getKRFilePath" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKRQuota">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getKRQuota" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKRbySeedUrl">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getKRbySeedUrl" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeedWord">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getSeedWord" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSeedUrl">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getSeedUrl" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKRCustom">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getKRCustom" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKRByMultiSeedWord">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/KRService/getKRByMultiSeedWord" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KRService">
+    <wsdl:port name="KRService" binding="tns:KRServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/sms/v2/KRService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

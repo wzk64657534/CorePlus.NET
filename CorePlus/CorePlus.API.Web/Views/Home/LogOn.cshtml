@@ -1,0 +1,81 @@
+﻿@model CorePlus.Entity.LoginEntity
+@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/Shared/_LogOn.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#ValidateCode').attr('style', 'width:50px;');
+
+        $("#valiCode").bind("click", function () {
+            this.src = "/Home/GetValidateCode?time=" + (new Date()).getTime();
+        });
+
+        $('#dialog').jqm();
+    });
+</script>
+@using (Html.BeginForm())
+{
+    <div class="box">
+        <div class="main">
+            <div class="login">
+                <div class="login_list">
+                    <div class="login_list_l">
+                        @Html.LabelFor(m => m.UserName)
+                    </div>
+                    <div class="login_list_r">
+                        @Html.TextBoxFor(m => m.UserName)
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+                </div>
+                <div class="login_list">
+                    <div class="login_list_l">
+                        @Html.LabelFor(m => m.Password)
+                    </div>
+                    <div class="login_list_r">
+                        @Html.PasswordFor(m => m.Password)
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+                <div class="login_list">
+                    <div class="login_list_l">
+                        @Html.LabelFor(m => m.ValidateCode)
+                    </div>
+                    <div class="login_list_r">
+                        <div class="login_list_r_l">
+                            @Html.TextBoxFor(m => m.ValidateCode)
+                        </div>
+                        <div class="login_list_r_r">
+                            <img id="valiCode" style="cursor: pointer;" src="/Home/GetValidateCode" alt="验证码" />
+                        </div>
+                        <div>
+                            @Html.ValidationMessageFor(m => m.ValidateCode)
+                        </div>
+                    </div>
+                </div>
+                <div class="login_mm white">
+                    <span style="color: Red;">@Html.ValidationSummary(true)</span>
+                </div>
+                <div class="login_an white">
+                    <div class="login_an_l">
+                        <input type="submit" value=" " class="loginbutton" />
+                    </div>
+                    <div class="login_an_r">
+                        <a href="#" class="jqModal">忘记密码</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="jqmWindow" id="dialog">
+    <a href="#" class="jqmClose">关闭</a>
+    <hr />
+    <br />
+    <p>
+        请联系客服为您重置密码
+    </p>
+    <br />
+</div>

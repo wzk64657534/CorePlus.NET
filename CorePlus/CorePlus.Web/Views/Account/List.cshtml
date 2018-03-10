@@ -1,0 +1,165 @@
+﻿@model CorePlus.Entity.AccountInfoEntity
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Js/Account/index.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Js/initckbbox.js")" type="text/javascript"></script>
+<style type="text/css">
+    .error
+    {
+        color: red;
+    }
+</style>
+<div>
+    <table id="dg" border="0">
+    </table>
+</div>
+<!----------------------------添加用户的Div-------------------------->
+@*-----------------------AddDivStart------------------*@
+<div id="addDiv" style="display: none">
+    @using (Ajax.BeginForm("Add", new AjaxOptions() { OnSuccess = "afterAdded" }))
+    {
+        @Html.ValidationSummary(true)
+         
+        <table width="100%" border="0" cellpadding="5" cellspacing="5" style="margin: 10px 10px;
+            border-collapse: separate; border-spacing: 3px;">
+            <tr>
+                <td width="120">
+                    帐号编号
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.AccountId, new Dictionary<string, object>{
+                        {"data-val-remote","该帐号编号已经存在!"}, 
+                        {"data-val-remote-additionalfields","*.AccountId"}, 
+                        {"data-val-remote-type","post"},
+                        {"data-val-remote-url","/Account/CheckAccountId"},
+                        {"style","width:400px; height:20px;" }
+                    })
+                    @Html.ValidationMessageFor(model => model.AccountId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户登录名
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.AccountName, new Dictionary<string, object>{{"data-val-remote","该账户登录名已经存在!"}, 
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　{"data-val-remote-additionalfields","*.AccountName"}, 
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　{"data-val-remote-type","post"},
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　{" data-val-remote-url","/Account/CheckAccountName"},
+               {"style","width:400px; height:20px;" }})
+                    @Html.ValidationMessageFor(model => model.AccountName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户中文名
+                </td>
+                <td>@Html.TextBoxFor(model => model.AccountChnName, new { @Style = "width:400px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.AccountChnName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    帐号密码
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.AccountPwd, new { @Style = "width:400px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.AccountPwd)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    帐号密钥
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Token, new { @Style = "width:400px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.Token)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户余额
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Balance, new { @Style = "width:400px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.Balance)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户累计消费
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Cost, new { @Style = "width:400px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.Cost)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户投资
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Payment, new { @Style = "width:400px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.Payment)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户预算
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Budget, new { @Style = "width:400px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.Budget)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户财务数据类型
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.Type, ViewBag.TypeList as IEnumerable<SelectListItem>, new { @Style = "width:404px; height:20px;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    推广地域列表
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.RegionTarget, new { @style = "width:402px;height:75px;" })
+                    @Html.ValidationMessageFor(model => model.RegionTarget)
+                </td>
+                <td>
+                    @*  <a href="javascript:void(0);" class="easyui-linkbutton 1-btn 1-btn-plain" iconcls="icon-add"
+                        plain="true" id="btnShow"></a>*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ip排除列表
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.ExcludeIp, new { @style = "width:402px;height:75px;" })
+                    @Html.ValidationMessageFor(model => model.ExcludeIp)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    账户开放域名列表
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.OpenDomains, new { @Style = "width:400px; height:20px;" })
+                    @Html.ValidationMessageFor(model => model.OpenDomains)
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+@*-----------------------AddDivEnd------------------*@ @*-------------------------修改的对话框的div-------------------------*@
+<div id="editDiv" style="display: none">
+    <iframe id="frameEdit" src="javascript:void(0)" frameborder="0" width="100%" height="100%">
+    </iframe>
+</div>
+@*<div id="ckbDiv">
+</div>*@ 

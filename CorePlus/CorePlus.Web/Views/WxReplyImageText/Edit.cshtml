@@ -1,0 +1,130 @@
+﻿@model CorePlus.WeiXin.Entity.WxReplyImageTextEntity
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Js/Home/index.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    function afterEdit(data) {
+        //关闭对话框，刷新表格
+        if (data == "ok") {
+            window.parent.window.afterEdit();
+        }
+    }
+
+    function submitFrm() {
+        $("form").submit();
+    }
+</script>
+@using (Ajax.BeginForm("Edit", new AjaxOptions() { OnSuccess = "afterEdit" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.ID)
+    <br />
+    <div id="divFrm">
+        <table width="90%" border="0" cellpadding="5" cellspacing="5" style="margin-left: 5px;">
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Keyword)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Keyword, new Dictionary<string, object>{　　　　　　　　　　　　　　　　
+                    {"style","width:300px; height:20px;" }})
+                    <span style="color: red;">*</span>
+                    @Html.ValidationMessageFor(model => model.Keyword)
+                    <div>
+                        多个关键词请用空格隔开，例如：美丽 漂亮 好看</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.MatchType)
+                </td>
+                <td>
+                    @{var list = CorePlus.Web.EntityWebHelper.GetMatchTypeList();}
+                    @Html.DropDownListFor(model => model.MatchType, list,
+                        new Dictionary<string, object> { { "style", "width:300px; height:30px;" } })
+                    <span style="color: red;">*</span>
+                    <div>
+                        完全匹配，用户输入的和此关键词一样才会触发<br />
+                        包含匹配，只要用户输入的文字包含本关键词就触发
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Title)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Title, new Dictionary<string, object>{　　　　　　　　　　　　　　　　
+                    {"style","width:300px; height:20px;" }})
+                    <span style="color: red;">*</span>
+                    @Html.ValidationMessageFor(model => model.Title)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.PicUrl)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.PicUrl, new Dictionary<string, object>{　　　　　　　　　　　　　　　　
+                    {"style","width:300px; height:20px;" }})
+                    <input id="btnUpload" type="button" value="上传" />
+                    <span style="color: red;">*</span>
+                    @Html.ValidationMessageFor(model => model.PicUrl)
+                    <div>
+                        <img id="imgSmall" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Url)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Url, new Dictionary<string, object>{　　　　　　　　　　　　　　　　
+                    {"style","width:300px; height:20px;" }})
+                    <span style="color: red;">*</span>
+                    @Html.ValidationMessageFor(model => model.Url)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Description)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Description, new Dictionary<string, object>{　　　　　　　　　　　　　　　　
+                    {"style","width:300px; height:20px;" }})
+                    <span style="color: red;">*</span>
+                    @Html.ValidationMessageFor(model => model.Description)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.WithIds)
+                </td>
+                <td>
+                    @{
+                      System.Text.StringBuilder sb = new System.Text.StringBuilder("<table style='width:100%'><tr>");
+                      List<CorePlus.WeiXin.Entity.WxReplyImageTextEntity> all = ViewBag.All as List<CorePlus.WeiXin.Entity.WxReplyImageTextEntity>;
+                      for (int i = 0; i < all.Count; i++)
+                      {
+                          if (i != 0 && i % 3 == 0)
+                          {
+                              sb.Append("</tr><tr>");
+                          }
+                          sb.Append("<td><input type='checkbox' value='" + all[i].ID + "' name='Ids' " + (all[i].Selected ? "checked='checked'" : "") + " />" + all[i].Keyword + "</td>");
+                      }
+                      sb.Append("</tr></table> ");
+                    }
+                    @MvcHtmlString.Create(sb.ToString())
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+<div id="divUpload" style="display: none;">
+    <iframe id="frmUpload" src="javascript:void(0)" frameborder="0" width="100%" height="100%">
+    </iframe>
+</div>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+    <!-- API -->
+    <object id="accountMapping" type="Core.CoreMapping&lt;CorePlus.Entity.AccountInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="accountStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.AccountStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="adgroupMapping" type="CorePlus.API.Web.ApiMapping&lt;CorePlus.Entity.AdgroupInfoEntity&gt; ,CorePlus.API.Web" singleton="true"/>
+    <object id="adgroupStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.AdgroupStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="campaignMapping" type="CorePlus.API.Web.ApiMapping&lt;CorePlus.Entity.CampaignInfoEntity&gt; ,CorePlus.API.Web" singleton="true"/>
+    <object id="campaignStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.CampaignStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="creativeMapping" type="CorePlus.API.Web.ApiMapping&lt;CorePlus.Entity.CreativeInfoEntity&gt; ,CorePlus.API.Web" singleton="true"/>
+    <object id="creativeStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.CreativeStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="keywordMapping" type="CorePlus.API.Web.ApiMapping&lt;CorePlus.Entity.KeywordInfoEntity&gt; ,CorePlus.API.Web" singleton="true"/>
+    <object id="keywordStatisticsMapping" type="Core.CoreMapping&lt;CorePlus.Entity.KeywordStatisticsEntity&gt; ,Core" singleton="true"/>
+    <object id="sublinkMapping" type="CorePlus.API.Web.ApiMapping&lt;CorePlus.Entity.SublinkInfoEntity&gt; ,CorePlus.API.Web" singleton="true"/>
+    <object id="folderMapping" type="CorePlus.API.Web.ApiMapping&lt;CorePlus.Entity.FolderInfoEntity&gt; ,CorePlus.API.Web" singleton="true"/>
+    <object id="monitorMapping" type="CorePlus.API.Web.ApiMapping&lt;CorePlus.Entity.MonitorInfoEntity&gt; ,CorePlus.API.Web" singleton="true"/>
+
+    <!-- 系统 -->
+    <object id="menuMapping" type="Core.CoreMapping&lt;CorePlus.Entity.MenuInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="logMapping" type="Core.CoreMapping&lt;CorePlus.Entity.LogInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="paramDtsMapping" type="Core.CoreDetailMapping&lt;CorePlus.Entity.ParamDtsInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="paramMapping" type="Core.CoreMapping&lt;CorePlus.Entity.ParamInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="roleMapping" type="Core.CoreMapping&lt;CorePlus.Entity.RoleInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="userMapping" type="Core.CoreMapping&lt;CorePlus.Entity.UserInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="sideMenuMapping" type="Core.CoreMapping&lt;CorePlus.Entity.SideMenuInfoEntity&gt; ,Core" singleton="true"/>
+    <object id="roleMenuMapping" type="Core.CoreMapping&lt;CorePlus.Entity.RoleMenuInfoEntity&gt; ,Core" singleton="true"/>
+</objects>

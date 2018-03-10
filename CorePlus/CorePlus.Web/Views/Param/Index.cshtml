@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CorePlus.Entity.ParamInfoEntity>
+@{
+    ViewBag.Title = "参数管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>
+    参数管理-列表</h2>
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            参数大类名称
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParamName)
+            </td>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("明细列表", "ParamDtsIndex", new { id = item.ID }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.ID }, new { onclick = "return confirm('确认删除吗？')" })
+            </td>
+        </tr>
+    }
+</table>

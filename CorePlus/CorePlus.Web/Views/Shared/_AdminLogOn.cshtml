@@ -1,0 +1,5 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text> 您好： <strong>@User.Identity.Name</strong> | @Html.ActionLink("退出", "LogOff", "Home")
+    
+    </text>}

@@ -1,0 +1,61 @@
+﻿@model CorePlus.WeiXin.Entity.WxReplyTextEntity
+@{
+    ViewBag.Title = "EditText";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.MatchType)
+    @Html.HiddenFor(model => model.Keyword)
+    <div id="divFrm">
+        <table width="90%" border="0" cellpadding="5" cellspacing="5">
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Keyword)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Keyword)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.MatchType)
+                </td>
+                <td>
+                    @{
+    var list = CorePlus.Web.EntityWebHelper.GetMatchTypeList();
+    foreach (var item in list)
+    {
+        if (item.Value == Convert.ToString(Model.MatchType ?? 1))
+        {
+                        @item.Text;
+                                  break;
+        }
+    }
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.Content)
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.Content,
+                        new Dictionary<string, object> { { "style", "width:300px; height:60px;" } })
+                    <span style="color: red;">*</span>
+                    @Html.ValidationMessageFor(model => model.Content)
+                    <div>
+                        必填，用户添加您的时候自动回复语；超链接添加形式，如：&lt;a href="http://www.baidu.com"&gt;百度&lt;/a&gt;
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="保存" />
+            @Html.ActionLink("返回", "Index")
+        </p>
+    </div>
+}

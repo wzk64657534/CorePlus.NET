@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CorePlus.Entity.LogInfoEntity>
+@{
+    ViewBag.Title = "日志管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>
+    日志管理-列表</h2>
+<table id="datalist" width="100%" cellpadding="3" cellspacing="3" border="0">
+    <tr>
+        <th>
+            发生时间
+        </th>
+        <th>
+            操作者
+        </th>
+        <th>
+            操作名称
+        </th>
+        <th>
+            标识
+        </th>
+        <th>
+            错误描述
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ErrorDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tag)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ErrorMsg)
+            </td>
+        </tr>
+    }
+</table>
+<div id="pager">
+</div>

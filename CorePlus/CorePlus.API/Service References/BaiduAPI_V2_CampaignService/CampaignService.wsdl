@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/sms/v2" xmlns:common="http://api.baidu.com/sem/common/v2" name="CampaignService" targetNamespace="https://api.baidu.com/sem/sms/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/sms/v2">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/sms/v2/CampaignService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:complexType name="CampaignType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="campaignId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="campaignName" type="xsd:string" />
+          <xsd:element minOccurs="0" name="budget" type="xsd:double" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="regionTarget" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="20" name="excludeIp" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="negativeWords" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="exactNegativeWords" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="schedule" type="tns:ScheduleType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="budgetOfflineTime" type="tns:OfflineTimeType" />
+          <xsd:element minOccurs="0" name="showProb" type="xsd:int" />
+          <xsd:element minOccurs="0" name="pause" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="joinContent" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="contentPrice" type="xsd:double" />
+          <xsd:element minOccurs="0" name="status" type="xsd:int" />
+          <xsd:element minOccurs="0" ref="common:opt" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ScheduleType">
+        <xsd:sequence>
+          <xsd:element name="weekDay" type="xsd:long" />
+          <xsd:element name="startHour">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:long">
+                <xsd:minInclusive value="0" />
+                <xsd:maxInclusive value="23" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="endHour">
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:long">
+                <xsd:minInclusive value="1" />
+                <xsd:maxInclusive value="24" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OfflineTimeType">
+        <xsd:sequence>
+          <xsd:element name="flag" type="xsd:int" />
+          <xsd:element name="time" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAllCampaignIdRequest">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAllCampaignIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="campaignIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCampaignByCampaignIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="campaignIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCampaignByCampaignIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="campaignTypes" type="tns:CampaignType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAllCampaignRequest">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAllCampaignResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="campaignTypes" type="tns:CampaignType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addCampaignRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="campaignTypes" type="tns:CampaignType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addCampaignResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="campaignTypes" type="tns:CampaignType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateCampaignRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="campaignTypes" type="tns:CampaignType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateCampaignResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="campaignTypes" type="tns:CampaignType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteCampaignRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="campaignIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteCampaignResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getCampaignByCampaignIdResponse">
+    <wsdl:part name="parameters" element="tns:getCampaignByCampaignIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateCampaignRequest">
+    <wsdl:part name="parameters" element="tns:updateCampaignRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAllCampaignRequest">
+    <wsdl:part name="parameters" element="tns:getAllCampaignRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAllCampaignResponse">
+    <wsdl:part name="parameters" element="tns:getAllCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateCampaignResponse">
+    <wsdl:part name="parameters" element="tns:updateCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllCampaignIdRequest">
+    <wsdl:part name="parameters" element="tns:getAllCampaignIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="getCampaignByCampaignIdRequest">
+    <wsdl:part name="parameters" element="tns:getCampaignByCampaignIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="addCampaignRequest">
+    <wsdl:part name="parameters" element="tns:addCampaignRequest" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:message name="addCampaignResponse">
+    <wsdl:part name="parameters" element="tns:addCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteCampaignRequest">
+    <wsdl:part name="parameters" element="tns:deleteCampaignRequest" />
+  </wsdl:message>
+  <wsdl:message name="getAllCampaignIdResponse">
+    <wsdl:part name="parameters" element="tns:getAllCampaignIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="deleteCampaignResponse">
+    <wsdl:part name="parameters" element="tns:deleteCampaignResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CampaignService">
+    <wsdl:operation name="getAllCampaignId">
+      <wsdl:input message="tns:getAllCampaignIdRequest" />
+      <wsdl:output message="tns:getAllCampaignIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCampaignByCampaignId">
+      <wsdl:input message="tns:getCampaignByCampaignIdRequest" />
+      <wsdl:output message="tns:getCampaignByCampaignIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllCampaign">
+      <wsdl:input message="tns:getAllCampaignRequest" />
+      <wsdl:output message="tns:getAllCampaignResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addCampaign">
+      <wsdl:input message="tns:addCampaignRequest" />
+      <wsdl:output message="tns:addCampaignResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCampaign">
+      <wsdl:input message="tns:updateCampaignRequest" />
+      <wsdl:output message="tns:updateCampaignResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCampaign">
+      <wsdl:input message="tns:deleteCampaignRequest" />
+      <wsdl:output message="tns:deleteCampaignResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CampaignServiceSOAP" type="tns:CampaignService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllCampaignId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CampaignService/getAllCampaignId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCampaignByCampaignId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CampaignService/getCampaignByCampaignId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllCampaign">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CampaignService/getAllCampaign" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCampaign">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CampaignService/addCampaign" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCampaign">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CampaignService/updateCampaign" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCampaign">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CampaignService/deleteCampaign" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CampaignService">
+    <wsdl:port name="CampaignService" binding="tns:CampaignServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/sms/v2/CampaignService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,156 @@
+﻿@model CorePlus.Entity.UserInfoEntity
+@{
+    ViewBag.Title = "用户管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>
+    用户管理-修改</h2>
+<style type="text/css">
+    table
+    {
+        border: solid 0px #e8eef4;
+    }
+    table td
+    {
+        border: solid 0px #e8eef4;
+        vertical-align: top;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>用户信息</legend>
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.UserPwd)
+        @Html.HiddenFor(model => model.UserType)
+        @Html.HiddenFor(model => model.UserStatus)
+        @Html.HiddenFor(model => model.LastLoginTime)
+        @Html.HiddenFor(model => model.UserLevel)
+        @Html.HiddenFor(model => model.RoleId)
+        @Html.HiddenFor(model => model.RoleName)
+        <table>
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.UserName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.UserName)
+                        <span style="color: red;">*</span>
+                        @Html.ValidationMessageFor(model => model.UserName)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ChnName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ChnName)
+                        <span style="color: red;">*</span>
+                        @Html.ValidationMessageFor(model => model.ChnName)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Address)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Address)
+                        @Html.ValidationMessageFor(model => model.Address)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Email)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Email)
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Tel)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Tel)
+                        @Html.ValidationMessageFor(model => model.Tel)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Phone)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Phone)
+                        @Html.ValidationMessageFor(model => model.Phone)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.SiteKeyword)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.SiteKeyword)
+                        @Html.ValidationMessageFor(model => model.SiteKeyword)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Token)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Token)
+                        @Html.ValidationMessageFor(model => model.Token)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.AppId)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.AppId)
+                        @Html.ValidationMessageFor(model => model.AppId)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Secret)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Secret)
+                        @Html.ValidationMessageFor(model => model.Secret)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.GrantType)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.GrantType)
+                        @Html.ValidationMessageFor(model => model.GrantType)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ExpiresIn)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ExpiresIn)
+                        @Html.ValidationMessageFor(model => model.ExpiresIn)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.TokenStatus)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.TokenStatus)
+                        @Html.ValidationMessageFor(model => model.TokenStatus)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.WeiXinNo)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.WeiXinNo)
+                        @Html.ValidationMessageFor(model => model.WeiXinNo)
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.IsSaveRecord)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.IsSaveRecord)
+                        @Html.ValidationMessageFor(model => model.IsSaveRecord)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="保存" />
+            @Html.ActionLink("返回用户管理", "Index")
+        </p>
+    </fieldset>
+
+}

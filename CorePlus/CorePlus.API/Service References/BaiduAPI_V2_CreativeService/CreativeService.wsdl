@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://api.baidu.com/sem/sms/v2" xmlns:common="http://api.baidu.com/sem/common/v2" name="CreativeService" targetNamespace="https://api.baidu.com/sem/sms/v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="https://api.baidu.com/sem/sms/v2">
+      <xsd:import schemaLocation="https://api.baidu.com/sem/sms/v2/CreativeService?xsd=../../Common.xsd" namespace="http://api.baidu.com/sem/common/v2" />
+      <xsd:complexType name="CreativeType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="creativeId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" name="title" type="xsd:string" />
+          <xsd:element minOccurs="0" name="description1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="description2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="destinationUrl" type="xsd:string" />
+          <xsd:element minOccurs="0" name="displayUrl" type="xsd:string" />
+          <xsd:element minOccurs="0" name="pause" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="status" type="xsd:int" />
+          <xsd:element minOccurs="0" ref="common:opt" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GroupCreativeId">
+        <xsd:sequence>
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="creativeIds" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="GroupCreative">
+        <xsd:sequence>
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="creativeTypes" type="tns:CreativeType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getCreativeIdByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCreativeIdByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupCreativeIds" type="tns:GroupCreativeId" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCreativeByAdgroupIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="adgroupIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCreativeByAdgroupIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="groupCreatives" type="tns:GroupCreative" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCreativeByCreativeIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="creativeIds" type="xsd:long" />
+            <xsd:element minOccurs="0" name="getTemp" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCreativeByCreativeIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="creativeTypes" type="tns:CreativeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addCreativeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="creativeTypes" type="tns:CreativeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addCreativeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="creativeTypes" type="tns:CreativeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateCreativeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="creativeTypes" type="tns:CreativeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateCreativeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="creativeTypes" type="tns:CreativeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteCreativeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="creativeIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteCreativeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="activateCreativeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="creativeIds" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="activateCreativeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="creativeTypes" type="tns:CreativeType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="StatusType">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="adgroupId" type="xsd:long" />
+          <xsd:element name="campaignId" type="xsd:long" />
+          <xsd:element name="status" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getCreativeStatusRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="ids" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCreativeStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="creativeStatus" type="tns:StatusType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCreativeStatusZipRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="ids" type="xsd:long" />
+            <xsd:element name="type" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getCreativeStatusZipResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="creativeStatus" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getCreativeStatusZipResponse">
+    <wsdl:part name="parameters" element="tns:getCreativeStatusZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="activateCreativeResponse">
+    <wsdl:part name="parameters" element="tns:activateCreativeResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:getCreativeByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeIdByAdgroupIdRequest">
+    <wsdl:part name="parameters" element="tns:getCreativeIdByAdgroupIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="addCreativeResponse">
+    <wsdl:part name="parameters" element="tns:addCreativeResponse" />
+  </wsdl:message>
+  <wsdl:message name="addCreativeRequest">
+    <wsdl:part name="parameters" element="tns:addCreativeRequest" />
+  </wsdl:message>
+  <wsdl:message name="deleteCreativeResponse">
+    <wsdl:part name="parameters" element="tns:deleteCreativeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResHeader">
+    <wsdl:part name="ResHeader" element="common:ResHeader" />
+  </wsdl:message>
+  <wsdl:message name="deleteCreativeRequest">
+    <wsdl:part name="parameters" element="tns:deleteCreativeRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateCreativeRequest">
+    <wsdl:part name="parameters" element="tns:updateCreativeRequest" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeStatusResponse">
+    <wsdl:part name="parameters" element="tns:getCreativeStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:getCreativeByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="activateCreativeRequest">
+    <wsdl:part name="parameters" element="tns:activateCreativeRequest" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeByCreativeIdResponse">
+    <wsdl:part name="parameters" element="tns:getCreativeByCreativeIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeIdByAdgroupIdResponse">
+    <wsdl:part name="parameters" element="tns:getCreativeIdByAdgroupIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthHeader">
+    <wsdl:part name="AuthHeader" element="common:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeByCreativeIdRequest">
+    <wsdl:part name="parameters" element="tns:getCreativeByCreativeIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeStatusRequest">
+    <wsdl:part name="parameters" element="tns:getCreativeStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="getCreativeStatusZipRequest">
+    <wsdl:part name="parameters" element="tns:getCreativeStatusZipRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateCreativeResponse">
+    <wsdl:part name="parameters" element="tns:updateCreativeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CreativeService">
+    <wsdl:operation name="getCreativeIdByAdgroupId">
+      <wsdl:input message="tns:getCreativeIdByAdgroupIdRequest" />
+      <wsdl:output message="tns:getCreativeIdByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCreativeByAdgroupId">
+      <wsdl:input message="tns:getCreativeByAdgroupIdRequest" />
+      <wsdl:output message="tns:getCreativeByAdgroupIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCreativeByCreativeId">
+      <wsdl:input message="tns:getCreativeByCreativeIdRequest" />
+      <wsdl:output message="tns:getCreativeByCreativeIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addCreative">
+      <wsdl:input message="tns:addCreativeRequest" />
+      <wsdl:output message="tns:addCreativeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCreative">
+      <wsdl:input message="tns:updateCreativeRequest" />
+      <wsdl:output message="tns:updateCreativeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCreative">
+      <wsdl:input message="tns:deleteCreativeRequest" />
+      <wsdl:output message="tns:deleteCreativeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="activateCreative">
+      <wsdl:input message="tns:activateCreativeRequest" />
+      <wsdl:output message="tns:activateCreativeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCreativeStatus">
+      <wsdl:input message="tns:getCreativeStatusRequest" />
+      <wsdl:output message="tns:getCreativeStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCreativeStatusZip">
+      <wsdl:input message="tns:getCreativeStatusZipRequest" />
+      <wsdl:output message="tns:getCreativeStatusZipResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CreativeServiceSOAP" type="tns:CreativeService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getCreativeIdByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/getCreativeIdByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCreativeByAdgroupId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/getCreativeByAdgroupId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCreativeByCreativeId">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/getCreativeByCreativeId" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCreative">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/addCreative" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCreative">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/updateCreative" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCreative">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/deleteCreative" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="activateCreative">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/activateCreative" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCreativeStatus">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/getCreativeStatus" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCreativeStatusZip">
+      <soap:operation soapAction="https://api.baidu.com/sem/sms/v2/CreativeService/getCreativeStatusZip" />
+      <wsdl:input>
+        <soap:header message="tns:AuthHeader" part="AuthHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ResHeader" part="ResHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CreativeService">
+    <wsdl:port name="CreativeService" binding="tns:CreativeServiceSOAP">
+      <soap:address location="https://api.baidu.com/sem/sms/v2/CreativeService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

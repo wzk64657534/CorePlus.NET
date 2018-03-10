@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var options = {
+            beforeSubmit: showRequest,
+            success: showResponse
+        };
+
+        $('#filePost').submit(function () {
+            $(this).ajaxSubmit(options);
+            return false;
+        });
+    });
+
+    function showRequest(data, form, options) {
+        return true;
+    }
+
+    function showResponse(data, status) {
+        if (data.indexOf('http://') > -1) {
+            window.parent.window.afterUpload(data);
+        } else {
+            $.messager.alert("错误信息", data);
+        }
+    }
+
+    //    function afterUpload(data) {
+    //        //关闭对话框，刷新表格
+    //        if (data.indexOf('http://') > -1) {
+    //            window.parent.window.afterUpload(data);
+    //        } else {
+    //            $.messager.alert("错误信息", data);
+    //        }
+    //    }
+
+    function submitFrm() {
+        $("form").submit();
+    }
+</script>
+@*@using (Ajax.BeginForm("Upload", "Home", new AjaxOptions() { OnSuccess = "afterUpload" }, new { enctype = "multipart/form-data" }))
+{*@
+<form id="filePost" action="/Home/Upload" method="post" enctype="multipart/form-data">
+<div id="divFrm">
+    <input type="file" name="file" />
+</div>
+</form>
+@*}*@

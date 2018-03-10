@@ -1,0 +1,63 @@
+﻿@model CorePlus.WeiXin.Entity.WxSubscribeConfigEntity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.UserName)
+    <div id="divFrm">
+        <fieldset>
+            <legend>账户信息</legend>
+            <table width="100%" border="0" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td style="width: 100px;">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ReplyType)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @{var list = CorePlus.Web.EntityWebHelper.GetReplyTypeList();}
+                            @Html.DropDownListFor(model => model.ReplyType, list,
+                            new Dictionary<string, object> { { "style", "width:300px; height:30px;" } })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.IsSaveUser)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.IsSaveUser)
+                            @Html.ValidationMessageFor(model => model.IsSaveUser)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.SaveUrl)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.SaveUrl)
+                            @Html.ValidationMessageFor(model => model.SaveUrl)
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <input type="submit" value="保存" />
+                |
+                @Html.ActionLink("返回", "Index")
+            </p>
+        </fieldset>
+    </div>
+}

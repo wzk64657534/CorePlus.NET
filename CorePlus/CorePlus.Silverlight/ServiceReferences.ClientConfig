@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="ServantServiceSoap" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:2001/Service/ServantService.asmx"
+                binding="basicHttpBinding" bindingConfiguration="ServantServiceSoap"
+                contract="ServantService.ServantServiceSoap" name="ServantServiceSoap" />
+        </client>
+    </system.serviceModel>
+</configuration>

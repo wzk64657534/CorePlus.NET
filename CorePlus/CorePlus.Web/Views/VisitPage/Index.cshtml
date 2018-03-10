@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="../../Js/component.js"></script>
+<script type="text/javascript" src="../../Js/Visit/visit.js"></script>
+<script type="text/javascript" src="../../Js/Visit/VisitAnalyse/PageIndex.js"></script>
+<div class="rightContainer">
+    <div class="box">
+        <div class="right_top_title">
+            <span>受访分析-受访页面<span id="timePeriod"></span></span> <a class="help rightHeaderTip">&nbsp;</a>
+        </div>
+        <div class="time_tool">
+            <div class="time_tool sticky" style="width: 1031px;">
+                <div class="day">
+                    <ul id="time_tool_quick_key">
+                        <li id="time_tool_today"><a info="0">今日</a></li>
+                        <li id="time_tool_yesterday"><a info="-1">昨日</a></li>
+                        <li id="time_tool_7days"><a info="-7">最近7日</a></li>
+                        <li id="time_tool_ago30days"><a info="-30">最近30日</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="summary" style="display: block;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="sum_title">
+                            浏览次数(PV)<a title="即通常说的PV（PageView）值，用户每打开1个网站页面，记录1个PV。用户多次打开同一页面PV累计多次。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            独立访客(UV)<a title="1天（00:00-24:00）之内，访问网站的不重复用户数（以浏览器cookie为依据），一天内同一访客多次访问网站只被计算1次。"
+                                class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            IP<a title="1天（00:00-24:00）之内，访问网站的不重复IP数。一天内相同IP地址多次访问网站只被计算1次。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            人均浏览页数<a title="平均每个独立访客产生的PV。人均浏览页数=浏览次数/独立访客。体现网站对访客的吸引程度。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title">
+                            输出PV<a title="由该页面点击到站内其他页面的PV。" class="sum_help">&nbsp;</a>
+                        </td>
+                        <td class="sum_title no_border">
+                            页面平均停留时长<a title="访客打开页面到离开该页面的平均时间差。平均页面停留时长=页面停留总时长/页面PV。" class="sum_help">&nbsp;</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sum_data" id="banner_pv">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_uv">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_ip">
+                            0
+                        </td>
+                        <td class="sum_data" id="banner_pvavg">
+                            0
+                        </td>
+                        <td class="sum_data">
+                            -
+                        </td>
+                        <td class="sum_data no_border">
+                            -
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="report_data">
+            <!--  受访页面表格 -->
+            <div class="report_title">
+                <ul id="tabs_report">
+                    <li>查看：</li>
+                    <li class="item" tag="1">受访页面</li>
+                    <li class="item" tag="2">站内入口&nbsp;<a title="站内入口指访客进入您网站时浏览的第一个页面。" href="javascript:void(0);"><img
+                        alt="" src="../../Content/images/wh.png" border="0" width="12" height="12" /></a></li>
+                    @*<li class="item" tag="3">站内出口&nbsp;<a title="站内出口为您提供访客离开您网站的页面。" href="javascript:void(0);"><img
+                        alt="" src="../../Content/images/wh.png" border="0" width="12" height="12"></a></li>*@
+                </ul>
+            </div>
+            <div class="choice">
+                <div class="choice-right">
+                    <div class="fleft">
+                        <input id="txbSearch" type="text" style="color: #ccc; width: 250px;" class="util_search_input1 lightGray" /></div>
+                    <div class="button fleft">
+                        <a class="filter_button1" id="btnSearch">搜索</a></div>
+                </div>
+            </div>
+            <!-- 受访页面内容 -->
+            <div class="tab-content" id="zhannei_shoufang_content" style="display: block;">
+                <table id="dg" border="0">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

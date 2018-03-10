@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="@Url.Content("~/Js/Baidu/Campaign/index.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Js/Baidu/changetab.js")" type="text/javascript"></script>
+<input id="SelectedId" name="SelectedId" type="hidden" value="@ViewBag.HighId" />
+<div class="manage_query">
+    <div class="ui_searchcombo">
+        <table>
+            <tr>
+                <td>
+                    <input id="ddlStatus" class="easyui-combobox" name="dept" data-options="
+                     url: '/Campaign/GetStatus',
+                    valueField:'ParamValue',
+                    textField:'ParamDtsName',
+                    editable:false,
+                    panelHeight: 'auto',
+                    value:'0'" />
+                </td>
+                <td>
+                    <input type="text" id="txbName" class="ui_text" style="width: 200px; height: 22px;
+                        float: left;" />
+                </td>
+                <td>
+                    <div id="btnSearch" class="ui_button">
+                        <a class="ui_button_label" href="javascript:void(0)">查询</a></div>
+                </td>
+                <td>
+                    <input id="cbxIsExact" type="checkbox" name="precise" title="精确查询" value="1" class="ui_checkbox" /><label
+                        class="ui_checkbox_label" for="ctrlcheckboxmaterialQueryprecise">精确查询</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="manage_bulletin scroll_y_top_fixed" style="z-index: 0; top: 0px; position: relative;">
+    <div class="ui_mcal">
+        <select id="ddlDatePick" class="easyui-combobox" data-options="editable:false, panelHeight: 'auto',value:'1'">
+            <option value="1">昨天</option>
+            <option value="2">本周</option>
+            <option value="3">本月</option>
+        </select>
+    </div>
+    <span class="ui_bubble">&nbsp;<span class="ui_bubble_icon_none">&nbsp;</span></span>
+    <ul class="bulletin">
+        <li>
+            <h3 id="sRecordCount" class="ui_label">
+                0</h3>
+            <span class="bulletin-char">计划总数</span> </li>
+        <li>
+            <h3 id="sShowCnt" class="ui_label">
+                0</h3>
+            <span class="bulletin-char">展现</span> </li>
+        <li>
+            <h3 id="sClicked" class="ui_label">
+                0</h3>
+            <span class="bulletin-char">点击</span> </li>
+        <li>
+            <h3 id="sTotalCost" class="ui_label" title="¥0.00">
+                ¥0.00</h3>
+            <span class="bulletin-char">消费</span> </li>
+        <li>
+            <h3 id="sTransformCnt" class="ui_label">
+                0</h3>
+            <span class="bulletin-char">转化</span> </li>
+        <li>
+            <h3 id="sClickedRate" class="ui_label">
+                0.00%</h3>
+            <span class="bulletin-char">点击率</span> </li>
+        <li>
+            <h3 id="sAvgClickedPrice" class="ui_label">
+                ¥0.00</h3>
+            <span class="bulletin-char">平均点击</span> </li>
+    </ul>
+</div>
+<div class="manage_table">
+    <table id="dg" border="0">
+    </table>
+</div>

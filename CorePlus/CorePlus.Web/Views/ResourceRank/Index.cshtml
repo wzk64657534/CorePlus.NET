@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="../../Js/component.js"></script>
+<script type="text/javascript" src="../../Js/Visit/visit.js"></script>
+<script type="text/javascript" src="../../Js/Visit/ResourceAnalyse/RankIndex.js"></script>
+<div class="rightContainer">
+    <div class="box">
+        <div class="right_top_title">
+            <span>来源分析-来源升降榜<span id="timePeriod"></span></span> <a  class="help rightHeaderTip"
+                title="提供任意两日的TOP100受访页面的浏览情况对比，并按照变化的剧烈程度提供排行榜，可通过此功能验证经过改版的页面是否有流量提升或哪些页面有巨大流量波动，从而及时排查相应问题。">
+                &nbsp;</a>
+        </div>
+        <div id="time_tool" class="time_tool" style="width: 1031px;">
+            <!-- 升降榜时间导航--->
+            <div class="day">
+                <ul id="quickDayUl">
+                    <li>
+                        <div class="day-selector d-selector">
+                            <div id="inputDate1Arrow" class="day-selector-arrow">
+                            </div>
+                            <div class="day-selector-text">
+                                <div style="position: relative; display: inline-block; width: 82px; height: 26px;">
+                                    <input type="text" id="inputDate1" style="position: absolute;" readonly="readonly" />
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>对比：</li>
+                    <li>
+                        <div class="day-selector d-selector">
+                            <div id="inputDate2Arrow" class="day-selector-arrow">
+                            </div>
+                            <div class="day-selector-text">
+                                <div style="position: relative; display: inline-block; width: 82px; height: 26px;">
+                                    <input type="text" id="inputDate2" style="position: absolute;" readonly="readonly" />
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button" id="btnDate">
+                            <a id="upDownSubmit1">确定</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="summary">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td>
+                        </td>
+                        <td class="sum_title" id="tdDate1">
+                        </td>
+                        <td class="sum_title" id="tdDate2">
+                        </td>
+                        <td class="sum_title no_border">
+                            变化情况
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="font14 b">
+                            来访次数
+                        </td>
+                        <td class="sum_data" id="tdPv1">
+                            0
+                        </td>
+                        <td class="sum_data grey9" id="tdPv2">
+                            0
+                        </td>
+                        <td class="sum_data red" id="tdChanged">
+                            0
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="report_data">
+            <div class="report_title">
+                <ul id="report_title_ul">
+                    <li>查看：</li>
+                    <li class="selected"><a>来路域名</a></li>
+                </ul>
+            </div>
+            <div class="choice">
+                <div class="choice-right">
+                    <div class="fleft">
+                        <input id="txbSearch" type="text" style="color: #ccc; width: 250px;" class="util_search_input1 lightGray" /></div>
+                    <div class="button fleft">
+                        <a class="filter_button1" id="btnSearch">搜索</a></div>
+                </div>
+            </div>
+            <div id="searchPageContent">
+                <table id="dg" border="0">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "主页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="Top" class="header-wrapper">
+    <div class="header">
+        <div class="logo">
+            <a href="/Home/Index">
+                <img alt="CorePlus" src="../../Content/customer/images/logo.png" />
+            </a>
+        </div>
+        <div class="top-nav">
+            @Html.Partial("_WorkerPartial")
+        </div>
+    </div>
+</div>
+<div class="body clearfix">
+    <iframe id="ifmMain" name="ifmMain" frameborder="0" marginheight="0" marginwidth="0"
+        width="100%" scrolling="no" height="700"></iframe>
+</div>

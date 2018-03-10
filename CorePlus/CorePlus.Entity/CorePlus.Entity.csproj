@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CEA208E3-5AAD-49AB-B5A4-04A57D313FD0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CorePlus.Entity</RootNamespace>
+    <AssemblyName>CorePlus.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Core\DLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\MaterialEntity.cs" />
+    <Compile Include="Base\StatisticsEntity.cs" />
+    <Compile Include="Entity\API\AccountInfoEntity.cs" />
+    <Compile Include="Entity\API\AccountStatisticsEntity.cs" />
+    <Compile Include="Entity\API\AdgroupInfoEntity.cs" />
+    <Compile Include="Entity\API\AdgroupStatisticsEntity.cs" />
+    <Compile Include="Entity\API\CampaignInfoEntity.cs" />
+    <Compile Include="Entity\API\CampaignStatisticsEntity.cs" />
+    <Compile Include="Entity\API\CreativeInfoEntity.cs" />
+    <Compile Include="Entity\API\CreativeStatisticsEntity.cs" />
+    <Compile Include="Entity\API\DialogInfoEntity.cs" />
+    <Compile Include="Entity\API\FolderInfoEntity.cs" />
+    <Compile Include="Entity\API\KeywordInfoEntity.cs" />
+    <Compile Include="Entity\API\KeywordStatisticsEntity.cs" />
+    <Compile Include="Entity\PrimaryKey\PrimaryKeyEntity.cs" />
+    <Compile Include="Entity\System\LogInfoEntity.cs" />
+    <Compile Include="Entity\System\ManagerInfoEntity.cs" />
+    <Compile Include="Entity\System\MenuInfoEntity.cs" />
+    <Compile Include="Entity\API\MonitorInfoEntity.cs" />
+    <Compile Include="Entity\System\ParamDtsInfoEntity.cs" />
+    <Compile Include="Entity\System\ParamInfoEntity.cs" />
+    <Compile Include="Entity\System\RoleInfoEntity.cs" />
+    <Compile Include="Entity\System\RoleMenuInfoEntity.cs" />
+    <Compile Include="Entity\System\ServantInfoEntity.cs" />
+    <Compile Include="Entity\System\SideMenuInfoEntity.cs" />
+    <Compile Include="Entity\API\SublinkInfoEntity.cs" />
+    <Compile Include="Entity\Synchronous\SynCheckedDataInfoEntity.cs" />
+    <Compile Include="Entity\Synchronous\SynDataInfoEntity.cs" />
+    <Compile Include="Entity\System\UserInfoEntity.cs" />
+    <Compile Include="Entity\Visit\VisitInfoEntity.cs" />
+    <Compile Include="Entity\Wcf\WcfServantEntity.cs" />
+    <Compile Include="Entity\Wcf\WcfLoginEntity.cs" />
+    <Compile Include="Socket\DialogItem.cs" />
+    <Compile Include="Interface\INameEntity.cs" />
+    <Compile Include="Socket\SocketP2PEntity.cs" />
+    <Compile Include="Socket\SocketP2PMessageEntity.cs" />
+    <Compile Include="View\Base\BaseViewStatisticsEntity.cs" />
+    <Compile Include="View\ChangePasswordEntity.cs" />
+    <Compile Include="View\LoginEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Customer\ViewAdgroupInfoEntity.cs" />
+    <Compile Include="View\Customer\ViewCampaignInfoEntity.cs" />
+    <Compile Include="View\Customer\ViewCreativeInfoEntity.cs" />
+    <Compile Include="View\Customer\ViewFolderInfoEntity.cs" />
+    <Compile Include="View\Customer\ViewKeywordInfoEntity.cs" />
+    <Compile Include="View\Customer\ViewStatisticsEntity.cs" />
+    <Compile Include="View\Customer\ViewSublinkInfoEntity.cs" />
+    <Compile Include="View\Visit\ChartDataEntity.cs" />
+    <Compile Include="View\Visit\ChartItemEntity.cs" />
+    <Compile Include="View\Visit\ResourceAnalyse\ResourceClassificationBannerEntity.cs" />
+    <Compile Include="View\Visit\VisitBannerEntity.cs" />
+    <Compile Include="View\Visit\VisitGridEntity.cs" />
+    <Compile Include="View\Visit\VisitorAnalyse\VisitorComparisonEntity.cs" />
+    <Compile Include="View\Visit\VisitorAnalyse\VisitorDatagridEntity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Entity\Core.Entity.csproj">
+      <Project>{b4e51013-fbfd-4048-918b-0dc6fe3e6841}</Project>
+      <Name>Core.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{41a1374d-6d16-46f1-abf6-42e87290fbb8}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

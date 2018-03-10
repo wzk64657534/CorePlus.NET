@@ -1,0 +1,117 @@
+﻿@model CorePlus.WeiXin.Entity.WxAccountEntity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.WeiXinNo)
+    @Html.HiddenFor(model => model.TokenStatus)
+    <div id="divFrm">
+        <fieldset>
+            <legend>账户信息</legend>
+            <table width="100%" border="0" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td style="width: 100px;">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Token)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Token, new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                            @Html.ValidationMessageFor(model => model.Token)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.AppId)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.AppId, new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                            @Html.ValidationMessageFor(model => model.AppId)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Secret)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Secret, new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                            @Html.ValidationMessageFor(model => model.Secret)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.GrantType)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.GrantType, new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                            @Html.ValidationMessageFor(model => model.GrantType)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ExpiresIn)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.ExpiresIn, new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                            (单位：秒)
+                            @Html.ValidationMessageFor(model => model.ExpiresIn)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.IsSaveRecord)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.IsSaveRecord)
+                            @Html.ValidationMessageFor(model => model.IsSaveRecord)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.IsAdvanced)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.IsAdvanced)
+                            @Html.ValidationMessageFor(model => model.IsAdvanced)
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <input type="submit" value="保存" />
+                |
+                @Html.ActionLink("返回", "Index")
+            </p>
+        </fieldset>
+    </div>
+}

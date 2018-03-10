@@ -1,0 +1,26 @@
+﻿@model CorePlus.Entity.ParamInfoEntity
+@{
+    ViewBag.Title = "参数管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>
+    参数管理-新增</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>参数信息</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParamName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ParamName)
+            @Html.ValidationMessageFor(model => model.ParamName)
+        </div>
+        <p>
+            <input type="submit" value="保存" />
+            @Html.ActionLink("返回参数管理", "ParamIndex")
+        </p>
+    </fieldset>  
+
+}

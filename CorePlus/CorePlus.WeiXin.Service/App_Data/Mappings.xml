@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+    <!-- 微信 -->
+    <object id="textMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxTextEntity&gt; ,Core" singleton="true" />
+    <object id="linkMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxLinkEntity&gt; ,Core" singleton="true" />
+    <object id="imageMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxImageEntity&gt; ,Core" singleton="true" />
+    <object id="locationMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxLocationEntity&gt; ,Core" singleton="true" />
+    <object id="videoMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxVideoEntity&gt; ,Core" singleton="true" />
+    <object id="voiceMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxVoiceEntity&gt; ,Core" singleton="true" />
+
+    <object id="locationEventMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxLocationEventEntity&gt; ,Core" singleton="true" />
+    <object id="menuEventMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxMenuEventEntity&gt; ,Core" singleton="true" />
+    <object id="scanEventMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxScanEventEntity&gt; ,Core" singleton="true" />
+    <object id="subscribeEventMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxSubscribeEventEntity&gt; ,Core" singleton="true" />
+
+    <object id="recognitionMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxRecognitionEntity&gt; ,Core" singleton="true" />
+
+    <object id="replyImageTextMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxReplyImageTextEntity&gt; ,Core" singleton="true" />
+    <object id="replyTextMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxReplyTextEntity&gt; ,Core" singleton="true" />
+
+    <object id="wxAccountMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxAccountEntity&gt; ,Core" singleton="true" />
+    <object id="wxSubUserMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxSubUserEntity&gt; ,Core" singleton="true" />
+    <object id="wxGroupMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxGroupEntity&gt; ,Core" singleton="true" />
+    <object id="wxSubscribeConfigMapping" type="Core.CoreMapping&lt;CorePlus.WeiXin.Entity.WxSubscribeConfigEntity&gt; ,Core" singleton="true" />
+</objects>

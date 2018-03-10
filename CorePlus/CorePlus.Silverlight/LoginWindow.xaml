@@ -1,0 +1,14 @@
+﻿<controls:ChildWindow x:Class="CorePlus.Silverlight.LoginWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" Title="登录" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" HasCloseButton="False" FontSize="20" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="250" Width="400">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <sdk:Label Height="30" HorizontalAlignment="Left" Margin="38,56,0,0" Name="label1" VerticalAlignment="Top" Width="63" Content="用户名" FontSize="20" />
+        <sdk:Label Content="密   码" FontSize="20" Height="32" HorizontalAlignment="Left" Margin="38,102,0,0" Name="label2" VerticalAlignment="Top" Width="63" />
+        <TextBox Height="40" HorizontalAlignment="Left" Margin="107,53,0,0" Name="txbUserName" VerticalAlignment="Top" Width="150" MaxLength="20" Padding="0,3,0,0" DataContext="{Binding}" />
+        <PasswordBox Height="40" HorizontalAlignment="Right" Margin="0,99,121,0" Name="txbPassword" VerticalAlignment="Top" Width="150" MaxLength="20" FontSize="20" Padding="0" />
+        <Button Content="登录" Height="40" HorizontalAlignment="Left" Margin="263,53,0,0" Name="btnLogin" VerticalAlignment="Top" Width="67" FontSize="14" Click="btnLogin_Click" />
+        <Button Content="重置" FontSize="14" Height="40" HorizontalAlignment="Left" Margin="263,99,0,0" Name="btnClear" VerticalAlignment="Top" Width="67" Click="btnClear_Click" />
+        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="38,145,0,0" Name="lblMsg" VerticalAlignment="Top" Width="292" Foreground="Red" />
+    </Grid>
+</controls:ChildWindow>

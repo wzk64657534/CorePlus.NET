@@ -1,0 +1,74 @@
+﻿@model CorePlus.WeiXin.Entity.WxMenuEntity
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function afterEdit(data) {
+        //关闭对话框，刷新表格
+        if (data == "ok") {
+            window.parent.window.afterEdit();
+        } else {
+            $.messager.alert("错误信息", data);
+        }
+    }
+
+    function submitFrm() {
+        $("form").submit();
+    }
+</script>
+@using (Ajax.BeginForm("Edit", new AjaxOptions() { OnSuccess = "afterEdit" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.ID)
+    <br />
+    <table width="90%" border="0" cellpadding="5" cellspacing="5" style="margin-left: 5px;">
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Name)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.Name, new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                @Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Type)
+            </td>
+            <td>
+                @{var wxmenuTypes = CorePlus.Web.EntityWebHelper.GetWxMenuTypeList();}
+                @Html.DropDownListFor(model => model.Type,
+                    wxmenuTypes,
+                    new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                <span style="color: red;">*</span>
+                @Html.ValidationMessageFor(model => model.Type)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.KeyOrUrl)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.KeyOrUrl,
+                    new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                <span style="color: red;">*</span>
+                @Html.ValidationMessageFor(model => model.KeyOrUrl)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.HighId)
+            </td>
+            <td>
+                @{ var firstMenus = ViewBag.FirstMenus as List<SelectListItem>;}
+                @Html.DropDownListFor(model => model.HighId,
+                    firstMenus,
+                    new Dictionary<string, object> { { "style", "width:300px; height:20px;" } })
+                <span style="color: red;">*</span>
+                @Html.ValidationMessageFor(model => model.HighId)
+            </td>
+        </tr>
+    </table>
+}

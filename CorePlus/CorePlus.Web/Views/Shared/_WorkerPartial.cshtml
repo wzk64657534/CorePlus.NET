@@ -1,0 +1,10 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text> <span style="color: #a8d7ff;">您好：<strong>@User.Identity.Name</strong></span>
+    |<a href="\Worker\Online" target="ifmMain">上线服务</a> |<a href="\Worker\ChangePassword"
+        target="ifmMain">修改密码</a> |<a href="\Home\LogOff" onclick="return confirm('确定要退出吗？');">退出</a>
+    </text>}
+else
+{
+    @:[ @Html.ActionLink("登录", "LogOn", "Account") ]
+}

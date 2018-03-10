@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript" src="../../Js/component.js"></script>
+<script type="text/javascript" src="../../Js/Visit/visit.js"></script>
+<script type="text/javascript" src="../../Js/Visit/ResourceAnalyse/RecentSearch.js"></script>
+<script type="text/javascript" src="../../Scripts/datapattern.js"></script>
+<div class="rightContainer">
+    <div class="box">
+        <div class="right_top_title">
+            <span>来源分析-最近搜索<span id="timePeriod"></span></span> <a title="提供最近7日的访客访问记录，可按每个PV或每次访问行为(访客的每次会话)显示，并可按照来源、搜索词等条件进行筛选。帮助您更加快速、详细的查找流量变动原因。"
+                class="help rightHeaderTip">&nbsp;</a>
+        </div>
+        <div class="report_data">
+            <!--  受访页面表格 -->
+            <div class="report_title">
+                <ul id="tabs_report">
+                    <li>查看：</li>
+                    <li class="item" tag="1" info="0">今天</li>
+                    <li class="item" tag="2" info="-1">昨天&nbsp<a href="javascript:void(0);"></a></li>
+                    <li class="item" tag="3" info="-2">前天&nbsp;<a href="javascript:void(0);"></a></li>
+                    <li class="item" tag="4" info="-3">前天&nbsp;<a href="javascript:void(0);"></a></li>
+                    <li class="item" tag="5" info="-4">&nbsp;<a href="javascript:void(0);"></a></li>
+                    <li class="item" tag="6" info="-5">&nbsp;<a href="javascript:void(0);"></a></li>
+                    <li class="item" tag="7" info="-6">&nbsp;<a href="javascript:void(0);"></a></li>
+                </ul>
+            </div>
+            <div class="choice">
+                <div class="choice-right">
+                    <div class="fleft">
+                        <span>输入完整IP：</span><input id="txbSearch" type="text" style="color: #ccc; width: 100px;"
+                            class="util_search_input1 lightGray" /></div>
+                    <div class="button fleft">
+                        <a class="filter_button1" id="btnSearch">搜索</a></div>
+                </div>
+            </div>
+            <!-- 受访页面内容 -->
+            <div class="tab-content" id="zhannei_shoufang_content" style="display: block;">
+                <table id="dg" border="0">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

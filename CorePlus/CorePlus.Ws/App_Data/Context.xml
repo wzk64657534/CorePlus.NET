@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+    <object id="dbContext" type="Core.CoreDBContext ,Core" scope="request" singleton="true">
+        <property name="Mappings">
+            <list element-type="Core.IMapping ,Core">
+                <ref object="ServantInfoMapping"/>
+                <ref object="WxAccountMapping"/>
+            </list>
+        </property>
+    </object>
+</objects>

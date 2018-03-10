@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41A1374D-6D16-46F1-ABF6-42E87290FBB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Scheduling.Quartz, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Spring.Scheduling.Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Services, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Spring.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Spring.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Web.Mvc3, Version=1.3.2.40943, Culture=neutral, PublicKeyToken=65e474d141e25e07, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Spring.Web.Mvc3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\BaseApplication.cs" />
+    <Compile Include="Ashx\BaseHttpHandler.cs" />
+    <Compile Include="Attribute\CacheAttribute.cs" />
+    <Compile Include="Attribute\DbValueOnlyAttribute.cs" />
+    <Compile Include="Attribute\EmailAttribute.cs" />
+    <Compile Include="Attribute\InfoAttribute.cs" />
+    <Compile Include="Attribute\LengthAttribute.cs" />
+    <Compile Include="Attribute\ModuleAttribute.cs" />
+    <Compile Include="Attribute\MustInputAttribute.cs" />
+    <Compile Include="Attribute\NotCopyAttribute.cs" />
+    <Compile Include="Attribute\NotLoadAttribute.cs" />
+    <Compile Include="Attribute\PasswordAttribute.cs" />
+    <Compile Include="Attribute\UserNameAttribute.cs" />
+    <Compile Include="Controller\BaseController.cs" />
+    <Compile Include="Controller\SimpleDetailController.cs" />
+    <Compile Include="Controller\SimpleController.cs" />
+    <Compile Include="DBContext\CoreDBContext.cs" />
+    <Compile Include="DBContext\DbContextScope.cs" />
+    <Compile Include="Delegate\CacheDelegate.cs" />
+    <Compile Include="Entity\Base\BaseEntity.cs" />
+    <Compile Include="Entity\Base\DetailEntity.cs" />
+    <Compile Include="Entity\CodeRuleEntity.cs" />
+    <Compile Include="Entity\MessageResult.cs" />
+    <Compile Include="Entity\Base\SimpleDetailEntity.cs" />
+    <Compile Include="Entity\Socket\BaseSocketEntity.cs" />
+    <Compile Include="Entity\Socket\BaseSocketMessageEntity.cs" />
+    <Compile Include="Enum\Enums.cs" />
+    <Compile Include="Exception\SessionLostException.cs" />
+    <Compile Include="Exception\WarningException.cs" />
+    <Compile Include="Extension\ApplicationExtension.cs" />
+    <Compile Include="Extension\ConditionBuilder.cs" />
+    <Compile Include="Extension\ExpressionVisitor.cs" />
+    <Compile Include="Extension\ModelStateDictionaryExtensions.cs" />
+    <Compile Include="Extension\ObjectExtensions.cs" />
+    <Compile Include="Extension\PartialEvaluator.cs" />
+    <Compile Include="Extension\SessionExtension.cs" />
+    <Compile Include="Extension\SocketExtensions.cs" />
+    <Compile Include="Helper\ApplicationHelper.cs" />
+    <Compile Include="Helper\AttributesHelper.cs" />
+    <Compile Include="Helper\ConfigurationHelper.cs" />
+    <Compile Include="Helper\ConstHelper.cs" />
+    <Compile Include="Helper\CookieHelper.cs" />
+    <Compile Include="Helper\CryptHelper.cs" />
+    <Compile Include="Helper\DateTimeHelper.cs" />
+    <Compile Include="Helper\ExceptionHelper.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="Helper\GuidHelper.cs" />
+    <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="Helper\PathHelper.cs" />
+    <Compile Include="Helper\RandomHelper.cs" />
+    <Compile Include="Helper\SessionHelper.cs" />
+    <Compile Include="Helper\SpringHelper.cs" />
+    <Compile Include="Helper\StringHelper.cs" />
+    <Compile Include="Helper\TypeHelper.cs" />
+    <Compile Include="Helper\ValidationHelper.cs" />
+    <Compile Include="Helper\WebHelper.cs" />
+    <Compile Include="Helper\XmlHelper.cs" />
+    <Compile Include="Helper\ZipHelper.cs" />
+    <Compile Include="Interface\Controller\ICoreController.cs" />
+    <Compile Include="Interface\Entity\ICodeRuleEntity.cs" />
+    <Compile Include="Interface\Mapping\IMapping.cs" />
+    <Compile Include="Interface\Provider\ICodeRuleProvider.cs" />
+    <Compile Include="Interface\Provider\IParamProvider.cs" />
+    <Compile Include="Interface\Repositoty\ICoreRepositoty.cs" />
+    <Compile Include="Manager\ParamManager.cs" />
+    <Compile Include="Mapping\BaseMapping.cs" />
+    <Compile Include="Mapping\CoreDetailMapping.cs" />
+    <Compile Include="Mapping\CoreMapping.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\CacheProvider.cs" />
+    <Compile Include="Provider\DbValueOnlyValidatorProvider.cs" />
+    <Compile Include="Provider\DefaultCodeRuleProvider.cs" />
+    <Compile Include="Provider\DefaultParamProvider.cs" />
+    <Compile Include="Cache\BaseCache.cs" />
+    <Compile Include="Repository\Base\BaseRepository.cs" />
+    <Compile Include="Repository\Base\SimpleDetailRepository.cs" />
+    <Compile Include="Repository\Base\SimpleRepository.cs" />
+    <Compile Include="Cache\CacheData.cs" />
+    <Compile Include="Validator\Model\DbValueOnlyModelValidator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\Common.Logging.dll" />
+    <Content Include="DLL\EntityFramework.dll" />
+    <Content Include="DLL\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="DLL\Ionic.Zip.dll" />
+    <Content Include="DLL\log4net.dll" />
+    <Content Include="DLL\Memcached.ClientLibrary.dll" />
+    <Content Include="DLL\Spring.Core.dll" />
+    <Content Include="DLL\Spring.Data.dll" />
+    <Content Include="DLL\Spring.Scheduling.Quartz.dll" />
+    <Content Include="DLL\Spring.Services.dll" />
+    <Content Include="DLL\Spring.Web.dll" />
+    <Content Include="DLL\Spring.Web.Mvc3.dll" />
+    <Content Include="Scripts\core.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

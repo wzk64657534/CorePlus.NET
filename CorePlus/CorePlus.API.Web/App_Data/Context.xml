@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+    <object id="dbContext" type="Core.CoreDBContext ,Core" scope="request" singleton="true">
+        <property name="Mappings">
+            <list element-type="Core.IMapping ,Core">
+                <!-- API -->
+                <ref object="accountMapping"/>
+                <ref object="accountStatisticsMapping"/>
+                <ref object="adgroupMapping"/>
+                <ref object="adgroupStatisticsMapping"/>
+                <ref object="campaignMapping"/>
+                <ref object="campaignStatisticsMapping"/>
+                <ref object="creativeMapping"/>
+                <ref object="creativeStatisticsMapping"/>
+                <ref object="keywordMapping"/>
+                <ref object="keywordStatisticsMapping"/>
+                <ref object="sublinkMapping"/>
+                <ref object="folderMapping"/>
+                <ref object="monitorMapping"/>
+
+                <!-- 系统 -->
+                <ref object="menuMapping"/>
+                <ref object="logMapping"/>
+                <ref object="paramDtsMapping"/>
+                <ref object="paramMapping"/>
+                <ref object="roleMapping"/>
+                <ref object="roleMenuMapping"/>
+                <ref object="userMapping"/>
+                <ref object="sideMenuMapping"/>
+            </list>
+        </property>
+    </object>
+</objects>

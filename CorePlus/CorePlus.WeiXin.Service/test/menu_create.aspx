@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="menu_create.aspx.cs" Inherits="Service.test.menu_create" %>

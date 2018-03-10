@@ -1,0 +1,52 @@
+﻿@model CorePlus.Entity.RoleInfoEntity
+@{
+    ViewBag.Title = "角色管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>
+    角色管理-修改</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.ID)
+    <fieldset>
+        <legend>角色信息</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RoleName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RoleName)
+            @Html.ValidationMessageFor(model => model.RoleName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ChnName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ChnName)
+            @Html.ValidationMessageFor(model => model.ChnName)
+        </div>
+        <div class="editor-label">
+            所属菜单
+        </div>
+        <div class="editor-field">
+            @{
+                System.Text.StringBuilder sb = new System.Text.StringBuilder("<table style='width:100%'><tr>");
+                List<CorePlus.Entity.MenuInfoEntity> list = ViewBag.MenuAll as List<CorePlus.Entity.MenuInfoEntity>;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (i != 0 && i % 3 == 0)
+                    {
+                        sb.Append("</tr><tr>");
+                    }
+                    sb.Append("<td><input type='checkbox' value='" + list[i].ID + "' name='menuIds' " + (list[i].Selected ? "checked='checked'" : "") + " />" + list[i].MenuName + "</td>");
+                }
+                sb.Append("</tr></table> ");
+            }
+            @MvcHtmlString.Create(sb.ToString())
+        </div>
+        <p>
+            <input type="submit" value="保存" />
+            @Html.ActionLink("返回角色管理", "Index")
+        </p>
+    </fieldset>
+}

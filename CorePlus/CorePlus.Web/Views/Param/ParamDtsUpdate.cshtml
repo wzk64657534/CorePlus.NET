@@ -1,0 +1,37 @@
+﻿@model CorePlus.Entity.ParamDtsInfoEntity
+@{
+    ViewBag.Title = "参数明细管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>参数信息</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SEQ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SEQ)
+            @Html.ValidationMessageFor(model => model.SEQ)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParamDtsName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ParamDtsName)
+            @Html.ValidationMessageFor(model => model.ParamValue)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParamValue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ParamValue)
+            @Html.ValidationMessageFor(model => model.ParamValue)
+        </div>
+        <p>
+            <input type="submit" value="保存" />
+        </p>
+    </fieldset>  
+
+}

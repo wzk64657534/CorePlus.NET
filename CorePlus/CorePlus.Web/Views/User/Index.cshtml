@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CorePlus.Entity.UserInfoEntity>
+@{
+    ViewBag.Title = "用户管理";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>
+    用户管理-列表</h2>
+<p>
+    @Html.ActionLink("新增", "Create")
+</p>
+<table id="datalist" width="100%" cellpadding="3" cellspacing="3" border="0">
+    <tr>
+        <th>
+            用户名
+        </th>
+        <th>
+            中文名
+        </th>
+        <th>
+            地址
+        </th>
+        <th>
+            电子邮箱
+        </th>
+        <th>
+            座机号码
+        </th>
+        <th>
+            手机号码
+        </th>
+        <th>
+            最后登录时间
+        </th>
+        <th>
+            角色名称
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChnName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastLoginTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("删除", "Delete", new { id = item.ID }, new { onclick = "return confirm('确认删除吗？')" })
+            </td>
+        </tr>
+    }
+</table>
+<div id="pager">
+</div>
