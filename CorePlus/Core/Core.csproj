@@ -116,7 +116,10 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -219,6 +222,7 @@
     <Content Include="DLL\Spring.Services.dll" />
     <Content Include="DLL\Spring.Web.dll" />
     <Content Include="DLL\Spring.Web.Mvc3.dll" />
+    <Content Include="DLL\System.Web.Mvc.dll" />
     <Content Include="Scripts\core.js" />
   </ItemGroup>
   <ItemGroup>

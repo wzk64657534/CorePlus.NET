@@ -37,7 +37,7 @@ namespace CorePlus.Web
                         model.Payment = (decimal)account.payment;
                         model.Type = account.type;
 
-                        db.Entry(model).State = System.Data.EntityState.Modified;
+                        //db.Entry(model).State = System.Data.EntityState.Modified;
                         db.SaveChanges();
                     }
                 }
